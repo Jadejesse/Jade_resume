@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jade Chen - online resume</title>
+    <title>Jade Chen - 在线简历</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="overlay"></div>
+
     <header>
         <h1>Jade Chen</h1>
         <p>Cloud & Data Center Technician</p>
     </header>
 
     <section id="contact">
-        <h2>contact</h2>
+        <h2>联系方式</h2>
         <ul>
             <li>Email: <a href="mailto:chosen1edwin@gmail.com">chosen1edwin@gmail.com</a></li>
             <li>Phone: 0455750352</li>
@@ -23,32 +25,72 @@
     </section>
 
     <section id="skills">
-        <h2>skills</h2>
+        <h2>技能</h2>
         <ul>
             <li>AWS Cloud</li>
-            <li>Python/Bash</li>
-            <li>EC2/S3/EBS</li>
+            <li>Python / Bash</li>
+            <li>EC2 / S3 / EBS</li>
             <li>SQL</li>
-            <li>Linux/Windows</li>
+            <li>AWS Cloudfront, Lambda, Redshift, IAM</li>
+            <li>Linux / Windows Administration</li>
             <li>Machine Learning</li>
-            <li>SAP SuccessFactors</li>
+            <li>Github</li>
+            <li>SAP Success Factors</li>
         </ul>
     </section>
 
     <section id="experience">
-        <h2>experience</h2>
-        <div>
+        <h2>工作经验</h2>
+
+        <div class="job">
             <h3>Data Center Technician - Amazon Web Services (AWS)</h3>
-            <p>Mar 2025 - Current</p>
+            <p>Mar 2025 - Current | Melbourne, VIC</p>
             <ul>
-                <li>Develop Python and Bash scripts to automate daily log collection and anomaly detection.</li>
-                <li>Monitor system logs and run automated checks to produce concise reports for on-call teams.</li>
-                <li>Administer AWS cloud resources (EC2, S3, RDS) and IAM user permissions.</li>
-                <li>Conduct Linux/Windows troubleshooting, patching, and optimization for high availability workloads.</li>
-                <li>Assist in enterprise-level infrastructure projects, including migration, provisioning, and decommissioning.</li>
+                <li>Develop Python and Bash scripts to automate daily log collection, parsing, and anomaly detection.</li>
+                <li>Monitor system logs and generate concise reports for on-call teams.</li>
+                <li>Automated daily data center operations, reducing incident response time.</li>
+                <li>Administer AWS resources (EC2, S3, RDS) and IAM permissions; use CloudWatch for proactive monitoring.</li>
+                <li>Conduct Linux and Windows Server troubleshooting, configuration, patching, and optimization.</li>
+                <li>Assist enterprise-level infrastructure projects: migration, provisioning, decommissioning.</li>
             </ul>
         </div>
-        
+
+        <div class="job">
+            <h3>Data Analyst - QQ Fashion</h3>
+            <p>Sep 2024 - Mar 2025 | Remote</p>
+            <ul>
+                <li>Business reporting, data analysis, and visualization.</li>
+                <li>Database management and web app development.</li>
+                <li>Created dashboards and visual reports using SQL, Power BI, Tableau, Excel.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <h3>Data Analyst - COLES Group</h3>
+            <p>Sep 2021 - Aug 2022 | Melbourne, VIC Hybrid</p>
+            <ul>
+                <li>Delivered actionable insights and dashboards to support business decision-making.</li>
+                <li>Managed cross-functional projects and collaborated with stakeholders.</li>
+                <li>Developed automated SQL scripts for efficient reporting.</li>
+                <li>Built predictive models to forecast demand, sales, labor cost, and inventory levels.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <h3>2IC Manager - COLES ROCHEDALE</h3>
+            <p>Aug 2019 - Aug 2021 | Brisbane, QLD</p>
+            <ul>
+                <li>Team Leadership, Customer Service, Sales and Merchandising</li>
+                <li>Inventory Management, Promotions and Marketing</li>
+                <li>Training and Development, Administration, Financial Management</li>
+                <li>Problem Solving, Quality Assurance, Training and Support</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>教育背景</h2>
+        <p>Bachelor of Information Technology, Griffith University, Brisbane, QLD, 2018</p>
     </section>
 
     <footer>
@@ -58,3 +100,5 @@
     <script src="script.js"></script>
 </body>
 </html>
+
+    
