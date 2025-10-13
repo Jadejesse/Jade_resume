@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jade Chen - online resume</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Jade Chen</h1>
+        <p>Cloud & Data Center Technician</p>
+    </header>
+
+    <section id="contact">
+        <h2>contact</h2>
+        <ul>
+            <li>Email: <a href="mailto:chosen1edwin@gmail.com">chosen1edwin@gmail.com</a></li>
+            <li>Phone: 0455750352</li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/jadechen">linkedin.com/in/jadechen</a></li>
+            <li>GitHub: <a href="https://github.com/Jadejesse">github.com/Jadejesse</a></li>
+        </ul>
+    </section>
+
+    <section id="skills">
+        <h2>skills</h2>
+        <ul>
+            <li>AWS Cloud</li>
+            <li>Python/Bash</li>
+            <li>EC2/S3/EBS</li>
+            <li>SQL</li>
+            <li>Linux/Windows</li>
+            <li>Machine Learning</li>
+            <li>SAP SuccessFactors</li>
+        </ul>
+    </section>
+
+    <section id="experience">
+        <h2>experience</h2>
+        <div>
+            <h3>Data Center Technician - Amazon Web Services (AWS)</h3>
+            <p>Mar 2025 - Current</p>
+            <ul>
+                <li>Develop Python and Bash scripts to automate daily log collection and anomaly detection.</li>
+                <li>Monitor system logs and run automated checks to produce concise reports for on-call teams.</li>
+                <li>Administer AWS cloud resources (EC2, S3, RDS) and IAM user permissions.</li>
+                <li>Conduct Linux/Windows troubleshooting, patching, and optimization for high availability workloads.</li>
+                <li>Assist in enterprise-level infrastructure projects, including migration, provisioning, and decommissioning.</li>
+            </ul>
+        </div>
+        
+    </section>
+
+    <footer>
+        <p>© 2025 Jade Chen</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
