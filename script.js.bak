@@ -1,0 +1,12 @@
+// Backup of original script
+// 页面滚动时淡入效果
+const elements = document.querySelectorAll('section, .job');
+window.addEventListener('scroll', () => {
+    elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 100) {
+            el.style.opacity = 1;
+            el.style.transform = 'translateY(0)';
+        }
+    });
+});

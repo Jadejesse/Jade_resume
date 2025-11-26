@@ -1,63 +1,79 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jade Chen - online resume</title>
+    <title>Jade Chen - Online Resume</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="overlay"></div>
+    <div class="bg-anim"></div>
 
-    <header>
-        <h1>Jade Chen</h1>
-        <p>Cloud & Data Center Technician</p>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="avatar">JC</div>
+            <div class="hero-text">
+                <h1>Jade Chen</h1>
+                <p class="role">Cloud & Data Center Technician</p>
+                <div class="cta">
+                    <a class="btn primary" href="#contact">Contact</a>
+                    <a class="btn ghost" href="#experience">Experience</a>
+                </div>
+            </div>
+        </div>
+        <svg class="hero-wave" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,40 C360,120 720,0 1440,40 L1440 120 L0 120 Z" fill="rgba(255,255,255,0.08)"></path></svg>
     </header>
 
-    <section id="contact">
-        <h2>联系方式</h2>
-        <ul>
-            <li>Email: <a href="mailto:chosen1edwin@gmail.com">chosen1edwin@gmail.com</a></li>
-            <li>Phone: 0455750352</li>
-            <li>LinkedIn: <a href="https://www.linkedin.com/in/jadechen">linkedin.com/in/jadechen</a></li>
-            <li>GitHub: <a href="https://github.com/Jadejesse">github.com/Jadejesse</a></li>
+    <section id="contact" class="card">
+        <h2>Contact</h2>
+        <ul class="contact-list">
+            <li><strong>Email:</strong> <a href="mailto:chosen1edwin@gmail.com">chosen1edwin@gmail.com</a></li>
+            <li><strong>Phone:</strong> 0455 750 352</li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jadechen">linkedin.com/in/jadechen</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/Jadejesse">github.com/Jadejesse</a></li>
         </ul>
     </section>
 
-    <section id="skills">
-        <h2>技能</h2>
-        <ul>
-            <li>AWS Cloud</li>
-            <li>Python / Bash</li>
-            <li>EC2 / S3 / EBS</li>
-            <li>SQL</li>
-            <li>AWS Cloudfront, Lambda, Redshift, IAM</li>
-            <li>Linux / Windows Administration</li>
-            <li>Machine Learning</li>
-            <li>Github</li>
-            <li>SAP Success Factors</li>
-        </ul>
+    <section id="skills" class="card">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill">
+                <div class="skill-head"><span>AWS Cloud</span><span class="percent">90%</span></div>
+                <div class="bar" data-percent="90"><div class="fill"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-head"><span>Python / Bash</span><span class="percent">88%</span></div>
+                <div class="bar" data-percent="88"><div class="fill"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-head"><span>SQL & Data</span><span class="percent">85%</span></div>
+                <div class="bar" data-percent="85"><div class="fill"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-head"><span>Linux / Windows</span><span class="percent">82%</span></div>
+                <div class="bar" data-percent="82"><div class="fill"></div></div>
+            </div>
+        </div>
     </section>
 
-    <section id="experience">
-        <h2>工作经验</h2>
+    <section id="experience" class="card">
+        <h2>Experience</h2>
 
-        <div class="job">
+        <div class="job card-light">
             <h3>Data Center Technician - Amazon Web Services (AWS)</h3>
-            <p>Mar 2025 - Current | Melbourne, VIC</p>
+            <p class="muted">Mar 2025 - Current | Melbourne, VIC</p>
             <ul>
                 <li>Develop Python and Bash scripts to automate daily log collection, parsing, and anomaly detection.</li>
                 <li>Monitor system logs and generate concise reports for on-call teams.</li>
                 <li>Automated daily data center operations, reducing incident response time.</li>
                 <li>Administer AWS resources (EC2, S3, RDS) and IAM permissions; use CloudWatch for proactive monitoring.</li>
                 <li>Conduct Linux and Windows Server troubleshooting, configuration, patching, and optimization.</li>
-                <li>Assist enterprise-level infrastructure projects: migration, provisioning, decommissioning.</li>
             </ul>
         </div>
 
-        <div class="job">
+        <div class="job card-light">
             <h3>Data Analyst - QQ Fashion</h3>
-            <p>Sep 2024 - Mar 2025 | Remote</p>
+            <p class="muted">Sep 2024 - Mar 2025 | Remote</p>
             <ul>
                 <li>Business reporting, data analysis, and visualization.</li>
                 <li>Database management and web app development.</li>
@@ -65,31 +81,18 @@
             </ul>
         </div>
 
-        <div class="job">
+        <div class="job card-light">
             <h3>Data Analyst - COLES Group</h3>
-            <p>Sep 2021 - Aug 2022 | Melbourne, VIC Hybrid</p>
+            <p class="muted">Sep 2021 - Aug 2022 | Melbourne, VIC Hybrid</p>
             <ul>
                 <li>Delivered actionable insights and dashboards to support business decision-making.</li>
-                <li>Managed cross-functional projects and collaborated with stakeholders.</li>
-                <li>Developed automated SQL scripts for efficient reporting.</li>
-                <li>Built predictive models to forecast demand, sales, labor cost, and inventory levels.</li>
-            </ul>
-        </div>
-
-        <div class="job">
-            <h3>2IC Manager - COLES ROCHEDALE</h3>
-            <p>Aug 2019 - Aug 2021 | Brisbane, QLD</p>
-            <ul>
-                <li>Team Leadership, Customer Service, Sales and Merchandising</li>
-                <li>Inventory Management, Promotions and Marketing</li>
-                <li>Training and Development, Administration, Financial Management</li>
-                <li>Problem Solving, Quality Assurance, Training and Support</li>
+                <li>Developed automated SQL scripts for efficient reporting and forecasting.</li>
             </ul>
         </div>
     </section>
 
     <section id="education">
-        <h2>教育背景</h2>
+        <h2>Education</h2>
         <p>Bachelor of Information Technology, Griffith University, Brisbane, QLD, 2018</p>
     </section>
 
