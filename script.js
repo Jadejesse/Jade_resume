@@ -1,13 +1,16 @@
 // Fancy resume interactions: scroll reveal + animate skill bars
+// Initialize resume interactions after the DOM is fully parsed.
 document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('section');
   const bars = document.querySelectorAll('.bar');
 
+  // Helper to check if an element is within the viewport threshold.
   function inView(el){
     const rect = el.getBoundingClientRect();
     return rect.top < window.innerHeight - 80;
   }
 
+  // Reveal sections and trigger bar animations once they appear.
   function reveal(){
     sections.forEach(s => { if(inView(s)) s.classList.add('in-view'); });
     // animate bars when skills section visible
@@ -26,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // initial reveal
   reveal();
+  // Re-run reveal logic on scroll to catch newly visible sections.
   window.addEventListener('scroll', () => reveal());
 
   // subtle header avatar pulse
