@@ -146,7 +146,7 @@
     </style>
 </head>
 <body>
-    <button class="download-btn" onclick="downloadBanner()">📥 下载横幅图</button>
+    <button class="download-btn" onclick="downloadBanner()">📥 Download Banner</button>
     
     <div class="banner" id="banner">
         <div class="content">
@@ -162,24 +162,24 @@
     </div>
     
     <div class="instructions">
-        <h3>📸 使用说明</h3>
+        <h3>📸 Instructions</h3>
         <p>
-            1. 点击右上角"下载横幅图"按钮保存图片<br>
-            2. 或者右键点击横幅图 → "图片另存为"<br>
-            3. 上传到 LinkedIn Featured 区域（推荐尺寸：1200×630px）
+            1. Click "Download Banner" button in the top right to save the image<br>
+            2. Or right-click on the banner → "Save image as"<br>
+            3. Upload to LinkedIn Featured section (Recommended size: 1200×630px)
         </p>
     </div>
 
     <script>
         function downloadBanner() {
-            // 使用 html2canvas 库来截图
+            // Use html2canvas library for screenshot
             const banner = document.getElementById('banner');
             
-            // 简单方法：提示用户右键保存
-            alert('请右键点击横幅图，选择"图片另存为"保存\n\n或者使用截图工具截取横幅区域（1200×630px）');
+            // Simple method: prompt user to right-click and save
+            alert('Please right-click on the banner and select "Save image as"\n\nOr use a screenshot tool to capture the banner area (1200×630px)');
             
-            // 如果需要自动下载，需要引入 html2canvas 库
-            // 这里提供一个简单的提示方案
+            // For automatic download, you need to include the html2canvas library
+            // This is a simple prompt solution
         }
     </script>
 </body>

@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  # Job 1: 代码质量检查（CI）
+  # Job 1: Code Quality Check (CI)
   lint:
     name: Code Quality Check
     runs-on: ubuntu-latest
@@ -19,7 +19,7 @@ jobs:
     - name: Check HTML syntax
       run: |
         echo "✅ Checking HTML files..."
-        # 简单检查 HTML 文件是否存在
+        # Simple check if HTML files exist
         if [ -f "index.html" ]; then
           echo "✅ index.html found"
         else
@@ -47,11 +47,11 @@ jobs:
           exit 1
         fi
 
-  # Job 2: 构建和部署（CD）
+  # Job 2: Build and Deploy (CD)
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
-    needs: lint  # 只有 lint 通过后才部署
+    needs: lint  # Only deploy after lint passes
     if: github.ref == 'refs/heads/main'
     
     steps:
@@ -78,7 +78,7 @@ jobs:
         echo "🌐 Your site is live at: https://jadejesse.github.io/Jade_resume/"
         echo "⏰ Deployed at: $(date)"
 
-  # Job 3: 通知（可选）
+  # Job 3: Notification (Optional)
   notify:
     name: Send Notification
     runs-on: ubuntu-latest
@@ -89,8 +89,8 @@ jobs:
     - name: Notify deployment status
       run: |
         if [ "${{ needs.deploy.result }}" == "success" ]; then
-          echo "✅ 部署成功通知"
-          echo "📧 可以在这里集成 Slack/Email 通知"
+          echo "✅ Deployment success notification"
+          echo "📧 You can integrate Slack/Email notifications here"
         else
-          echo "❌ 部署失败通知"
+          echo "❌ Deployment failure notification"
         fi

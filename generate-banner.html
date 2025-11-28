@@ -191,8 +191,8 @@
 <body>
     <div class="container">
         <div class="controls">
-            <button class="download-btn" onclick="downloadAsPNG()">📥 下载为 PNG 图片</button>
-            <button class="download-btn" onclick="copyToClipboard()">📋 复制到剪贴板</button>
+            <button class="download-btn" onclick="downloadAsPNG()">📥 Download as PNG</button>
+            <button class="download-btn" onclick="copyToClipboard()">📋 Copy to Clipboard</button>
         </div>
         
         <div class="banner" id="banner">
@@ -213,17 +213,17 @@
         <div id="status" class="status"></div>
         
         <div class="instructions">
-            <h3>📸 使用说明</h3>
-            <p><strong>方法 1（推荐）：</strong>点击"下载为 PNG 图片"按钮，自动保存为 1200×630px 的图片</p>
-            <p><strong>方法 2：</strong>点击"复制到剪贴板"，然后直接粘贴到 LinkedIn</p>
-            <p><strong>方法 3：</strong>右键点击横幅图 → "图片另存为"</p>
+            <h3>📸 Instructions</h3>
+            <p><strong>Method 1 (Recommended):</strong> Click "Download as PNG" button to save as 1200×630px image</p>
+            <p><strong>Method 2:</strong> Click "Copy to Clipboard" and paste directly to LinkedIn</p>
+            <p><strong>Method 3:</strong> Right-click on banner → "Save image as"</p>
             
             <div class="tip">
-                <strong>💡 LinkedIn Featured 上传步骤：</strong><br>
-                1. 登录 LinkedIn → 个人资料页面<br>
-                2. 滚动到 "Featured" 区域 → 点击 "+" 添加<br>
-                3. 选择 "Media" → 上传下载的图片<br>
-                4. 添加标题和描述（见下方文案）
+                <strong>💡 LinkedIn Featured Upload Steps:</strong><br>
+                1. Login to LinkedIn → Go to your profile page<br>
+                2. Scroll to "Featured" section → Click "+" to add<br>
+                3. Select "Media" → Upload the downloaded image<br>
+                4. Add title and description (see documentation)
             </div>
         </div>
     </div>
@@ -233,7 +233,7 @@
             const banner = document.getElementById('banner');
             const status = document.getElementById('status');
             
-            status.textContent = '正在生成图片...';
+            status.textContent = 'Generating image...';
             status.className = 'status';
             status.style.display = 'block';
             status.style.background = '#fff3cd';
@@ -251,14 +251,14 @@
                 link.href = canvas.toDataURL('image/png');
                 link.click();
                 
-                status.textContent = '✅ 图片已下载成功！文件名：jade-chen-linkedin-banner.png';
+                status.textContent = '✅ Image downloaded successfully! Filename: jade-chen-linkedin-banner.png';
                 status.className = 'status success';
                 
                 setTimeout(() => {
                     status.style.display = 'none';
                 }, 5000);
             }).catch(err => {
-                status.textContent = '❌ 下载失败，请使用右键"图片另存为"';
+                status.textContent = '❌ Download failed, please right-click and "Save image as"';
                 status.style.background = '#f8d7da';
                 status.style.color = '#721c24';
             });
@@ -268,7 +268,7 @@
             const banner = document.getElementById('banner');
             const status = document.getElementById('status');
             
-            status.textContent = '正在复制到剪贴板...';
+            status.textContent = 'Copying to clipboard...';
             status.className = 'status';
             status.style.display = 'block';
             status.style.background = '#fff3cd';
@@ -284,14 +284,14 @@
                 canvas.toBlob(blob => {
                     const item = new ClipboardItem({ 'image/png': blob });
                     navigator.clipboard.write([item]).then(() => {
-                        status.textContent = '✅ 已复制到剪贴板！现在可以直接粘贴到 LinkedIn';
+                        status.textContent = '✅ Copied to clipboard! You can now paste it to LinkedIn';
                         status.className = 'status success';
                         
                         setTimeout(() => {
                             status.style.display = 'none';
                         }, 5000);
                     }).catch(err => {
-                        status.textContent = '❌ 复制失败，请使用下载按钮';
+                        status.textContent = '❌ Copy failed, please use the download button';
                         status.style.background = '#f8d7da';
                         status.style.color = '#721c24';
                     });
