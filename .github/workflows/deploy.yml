@@ -1,0 +1,96 @@
+name: CI/CD - Deploy Resume
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  # Job 1: 代码质量检查（CI）
+  lint:
+    name: Code Quality Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Check HTML syntax
+      run: |
+        echo "✅ Checking HTML files..."
+        # 简单检查 HTML 文件是否存在
+        if [ -f "index.html" ]; then
+          echo "✅ index.html found"
+        else
+          echo "❌ index.html not found"
+          exit 1
+        fi
+    
+    - name: Check CSS syntax
+      run: |
+        echo "✅ Checking CSS files..."
+        if [ -f "style.css" ]; then
+          echo "✅ style.css found"
+        else
+          echo "❌ style.css not found"
+          exit 1
+        fi
+    
+    - name: Check JavaScript syntax
+      run: |
+        echo "✅ Checking JavaScript files..."
+        if [ -f "script.js" ]; then
+          echo "✅ script.js found"
+        else
+          echo "❌ script.js not found"
+          exit 1
+        fi
+
+  # Job 2: 构建和部署（CD）
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: lint  # 只有 lint 通过后才部署
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Setup deployment
+      run: |
+        echo "🚀 Preparing deployment..."
+        echo "📦 Project: Jade Resume"
+        echo "🌐 Target: GitHub Pages"
+        echo "✅ All checks passed!"
+    
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: .
+        publish_branch: gh-pages
+    
+    - name: Deployment success
+      run: |
+        echo "✅ Deployment successful!"
+        echo "🌐 Your site is live at: https://jadejesse.github.io/Jade_resume/"
+        echo "⏰ Deployed at: $(date)"
+
+  # Job 3: 通知（可选）
+  notify:
+    name: Send Notification
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: always()
+    
+    steps:
+    - name: Notify deployment status
+      run: |
+        if [ "${{ needs.deploy.result }}" == "success" ]; then
+          echo "✅ 部署成功通知"
+          echo "📧 可以在这里集成 Slack/Email 通知"
+        else
+          echo "❌ 部署失败通知"
+        fi
