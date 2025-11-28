@@ -1,77 +1,77 @@
-# 🚀 CI/CD 完全指南
+# 🚀 Complete CI/CD Guide
 
-## 📖 什么是 CI/CD？
+## 📖 What is CI/CD?
 
-### Git Push（版本控制）≠ CI/CD
+### Git Push (Version Control) ≠ CI/CD
 
-#### Git Push（你之前做的）
+#### Git Push (What you did before)
 ```bash
 git add .
 git commit -m "Update"
 git push origin main
 ```
-**只做了：** 把代码上传到 GitHub
+**Only does:** Upload code to GitHub
 
-#### CI/CD（完整的自动化）
+#### CI/CD (Complete Automation)
 ```bash
 git push origin main
 ↓
-🤖 自动运行测试
+🤖 Automatically run tests
 ↓
-🤖 自动检查代码质量
+🤖 Automatically check code quality
 ↓
-🤖 自动构建应用
+🤖 Automatically build application
 ↓
-🤖 自动部署到服务器
+🤖 Automatically deploy to server
 ↓
-🤖 自动发送通知
+🤖 Automatically send notifications
 ```
 
 ---
 
-## 🎯 CI/CD 的两个部分
+## 🎯 Two Parts of CI/CD
 
-### CI = Continuous Integration（持续集成）
-**目标：** 确保代码质量
+### CI = Continuous Integration
+**Goal:** Ensure code quality
 
-**自动做的事：**
-1. ✅ 运行单元测试
-2. ✅ 运行集成测试
-3. ✅ 检查代码风格（Linting）
-4. ✅ 检查代码安全漏洞
-5. ✅ 构建应用
-6. ✅ 生成测试报告
+**Automated tasks:**
+1. ✅ Run unit tests
+2. ✅ Run integration tests
+3. ✅ Check code style (Linting)
+4. ✅ Check security vulnerabilities
+5. ✅ Build application
+6. ✅ Generate test reports
 
-### CD = Continuous Deployment（持续部署）
-**目标：** 自动部署到生产环境
+### CD = Continuous Deployment
+**Goal:** Automatically deploy to production
 
-**自动做的事：**
-1. ✅ 部署到测试环境
-2. ✅ 运行冒烟测试
-3. ✅ 部署到生产环境
-4. ✅ 健康检查
-5. ✅ 如果失败，自动回滚
-6. ✅ 发送通知（Slack/Email）
+**Automated tasks:**
+1. ✅ Deploy to test environment
+2. ✅ Run smoke tests
+3. ✅ Deploy to production environment
+4. ✅ Health checks
+5. ✅ Automatic rollback if failed
+6. ✅ Send notifications (Slack/Email)
 
 ---
 
-## 🛠️ 你的项目现在有 CI/CD 了！
+## 🛠️ Your Project Now Has CI/CD!
 
-### 文件位置
+### File Location
 ```
 .github/workflows/deploy.yml
 ```
 
-### 工作流程
+### Workflow
 
-#### 1. 你 Push 代码
+#### 1. You Push Code
 ```bash
 git add .
 git commit -m "Update resume"
 git push origin main
 ```
 
-#### 2. GitHub Actions 自动运行
+#### 2. GitHub Actions Runs Automatically
 ```
 Job 1: Code Quality Check (CI)
 ├── ✅ Check HTML files
@@ -87,44 +87,44 @@ Job 3: Send Notification
 └── 📧 Notify status
 ```
 
-#### 3. 查看结果
-访问：https://github.com/Jadejesse/Jade_resume/actions
+#### 3. View Results
+Visit: https://github.com/Jadejesse/Jade_resume/actions
 
 ---
 
-## 📊 CI/CD 流程图
+## 📊 CI/CD Flow Diagram
 
-### 手动流程（之前）
+### Manual Process (Before)
 ```
-开发者 → 写代码 → git push → 等待 → 手动检查
+Developer → Write code → git push → Wait → Manual check
 ```
 
-### CI/CD 流程（现在）
+### CI/CD Process (Now)
 ```
-开发者 → 写代码 → git push
+Developer → Write code → git push
                     ↓
               GitHub Actions
                     ↓
          ┌──────────┴──────────┐
          ↓                     ↓
-    自动测试              自动检查
+    Auto Test            Auto Check
          ↓                     ↓
          └──────────┬──────────┘
                     ↓
-              测试通过？
+              Tests Pass?
                     ↓
-              自动部署
+            Auto Deploy
                     ↓
-              健康检查
+            Health Check
                     ↓
-              发送通知
+          Send Notification
 ```
 
 ---
 
-## 🎓 真实的 DevOps CI/CD 场景
+## 🎓 Real DevOps CI/CD Scenarios
 
-### 场景 1：Web 应用部署到 AWS
+### Scenario 1: Web App Deployment to AWS
 
 ```yaml
 # .gitlab-ci.yml
@@ -153,18 +153,18 @@ deploy:
     - kubectl rollout status deployment/myapp
 ```
 
-**流程：**
-1. 开发者 push 代码
-2. 🤖 自动运行测试（Jest, Pytest）
-3. 🤖 自动构建 Docker 镜像
-4. 🤖 自动推送到 AWS ECR
-5. 🤖 自动部署到 ECS/EKS
-6. 🤖 自动健康检查
-7. 🤖 如果失败，自动回滚
+**Process:**
+1. Developer pushes code
+2. 🤖 Automatically run tests (Jest, Pytest)
+3. 🤖 Automatically build Docker image
+4. 🤖 Automatically push to AWS ECR
+5. 🤖 Automatically deploy to ECS/EKS
+6. 🤖 Automatically run health checks
+7. 🤖 Automatically rollback if failed
 
 ---
 
-### 场景 2：Python 应用部署
+### Scenario 2: Python Application Deployment
 
 ```yaml
 # .github/workflows/python-app.yml
@@ -210,29 +210,29 @@ jobs:
 
 ---
 
-## 🔧 常用 CI/CD 工具对比
+## 🔧 CI/CD Tools Comparison
 
-| 工具 | 优势 | 劣势 | 适用场景 |
-|------|------|------|----------|
-| **GitHub Actions** | 免费，集成好 | 功能相对简单 | 开源项目，小型项目 |
-| **GitLab CI/CD** | 功能强大，免费 | 需要 GitLab | 企业项目 |
-| **Jenkins** | 最灵活，插件多 | 需要自己维护 | 大型企业 |
-| **AWS CodePipeline** | AWS 原生 | 只能用 AWS | AWS 项目 |
-| **CircleCI** | 速度快 | 付费 | 商业项目 |
+| Tool | Advantages | Disadvantages | Use Cases |
+|------|-----------|---------------|-----------|
+| **GitHub Actions** | Free, well integrated | Relatively simple | Open source, small projects |
+| **GitLab CI/CD** | Powerful, free | Requires GitLab | Enterprise projects |
+| **Jenkins** | Most flexible, many plugins | Self-hosted maintenance | Large enterprises |
+| **AWS CodePipeline** | AWS native | AWS only | AWS projects |
+| **CircleCI** | Fast | Paid | Commercial projects |
 
 ---
 
-## 💼 DevOps 工程师的日常工作
+## 💼 DevOps Engineer Daily Work
 
-### 1. 设计 CI/CD 流程
+### 1. Design CI/CD Pipeline
 ```yaml
-# 设计多环境部署流程
+# Design multi-environment deployment
 dev → test → staging → production
 ```
 
-### 2. 优化构建速度
+### 2. Optimize Build Speed
 ```yaml
-# 使用缓存加速
+# Use caching to speed up
 - name: Cache dependencies
   uses: actions/cache@v2
   with:
@@ -240,9 +240,9 @@ dev → test → staging → production
     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
 ```
 
-### 3. 监控和告警
+### 3. Monitoring and Alerting
 ```yaml
-# 集成监控工具
+# Integrate monitoring tools
 - name: Send metrics to CloudWatch
   run: |
     aws cloudwatch put-metric-data \
@@ -250,9 +250,9 @@ dev → test → staging → production
       --value $DURATION
 ```
 
-### 4. 自动回滚
+### 4. Automatic Rollback
 ```yaml
-# 部署失败自动回滚
+# Rollback on deployment failure
 - name: Rollback on failure
   if: failure()
   run: |
@@ -261,130 +261,211 @@ dev → test → staging → production
 
 ---
 
-## 🎯 学习路径
+## 🎯 Learning Path
 
-### Level 1：基础（你现在在这里）
-- ✅ Git 基础（add, commit, push）
-- ✅ GitHub 基础
-- 🔲 GitHub Actions 基础
+### Level 1: Basics (You are here)
+- ✅ Git basics (add, commit, push)
+- ✅ GitHub basics
+- 🔲 GitHub Actions basics
 
-### Level 2：进阶
-- 🔲 Docker 容器化
-- 🔲 编写 Dockerfile
+### Level 2: Intermediate
+- 🔲 Docker containerization
+- 🔲 Write Dockerfile
 - 🔲 Docker Compose
-- 🔲 容器编排基础
+- 🔲 Container orchestration basics
 
-### Level 3：高级
-- 🔲 Kubernetes 部署
+### Level 3: Advanced
+- 🔲 Kubernetes deployment
 - 🔲 Helm Charts
-- 🔲 多环境管理
-- 🔲 蓝绿部署/金丝雀发布
+- 🔲 Multi-environment management
+- 🔲 Blue-green deployment / Canary release
 
-### Level 4：专家
-- 🔲 GitOps（ArgoCD, Flux）
-- 🔲 Infrastructure as Code（Terraform）
-- 🔲 监控和可观测性（Prometheus, Grafana）
-- 🔲 安全扫描和合规
+### Level 4: Expert
+- 🔲 GitOps (ArgoCD, Flux)
+- 🔲 Infrastructure as Code (Terraform)
+- 🔲 Monitoring and Observability (Prometheus, Grafana)
+- 🔲 Security scanning and compliance
 
 ---
 
-## 📚 推荐学习资源
+## 📚 Recommended Learning Resources
 
-### 免费课程
-1. **GitHub Actions 官方文档**
+### Free Courses
+1. **GitHub Actions Official Documentation**
    - https://docs.github.com/en/actions
 
-2. **GitLab CI/CD 教程**
+2. **GitLab CI/CD Tutorial**
    - https://docs.gitlab.com/ee/ci/
 
-3. **Jenkins 官方教程**
+3. **Jenkins Official Tutorial**
    - https://www.jenkins.io/doc/tutorials/
 
-### YouTube 频道
+### YouTube Channels
 - TechWorld with Nana
 - DevOps Toolkit
 - Cloud Academy
 
-### 实战项目
-1. 为你的简历网站添加自动化测试
-2. 构建一个 Docker 化的应用
-3. 部署到 AWS ECS/EKS
+### Hands-on Projects
+1. Add automated testing to your resume website
+2. Build a Dockerized application
+3. Deploy to AWS ECS/EKS
 
 ---
 
-## 🚀 下一步行动
+## 🚀 Next Steps
 
-### 本周
-1. ✅ 理解 CI/CD 概念
-2. 🔲 查看 GitHub Actions 运行结果
-3. 🔲 修改代码，触发 CI/CD
+### This Week
+1. ✅ Understand CI/CD concepts
+2. 🔲 Check GitHub Actions results
+3. 🔲 Modify code to trigger CI/CD
 
-### 本月
-1. 🔲 学习 Docker 基础
-2. 🔲 为项目添加自动化测试
-3. 🔲 学习 Jenkins 基础
+### This Month
+1. 🔲 Learn Docker basics
+2. 🔲 Add automated testing to project
+3. 🔲 Learn Jenkins basics
 
-### 3 个月内
-1. 🔲 构建完整的 CI/CD 流程
-2. 🔲 学习 Kubernetes
-3. 🔲 在简历中添加 CI/CD 项目经验
+### Within 3 Months
+1. 🔲 Build complete CI/CD pipeline
+2. 🔲 Learn Kubernetes
+3. 🔲 Add CI/CD project experience to resume
 
 ---
 
-## 💡 关键要点
+## 💡 Key Takeaways
 
 ### Git Push ≠ CI/CD
 
-**Git Push：**
-- 只是版本控制
-- 手动操作
-- 没有自动化
+**Git Push:**
+- Just version control
+- Manual operation
+- No automation
 
-**CI/CD：**
-- 完整的自动化流程
-- 自动测试 + 自动部署
-- DevOps 的核心技能
+**CI/CD:**
+- Complete automation pipeline
+- Automated testing + deployment
+- Core DevOps skill
 
-### CI/CD 的价值
+### Value of CI/CD
 
-1. **提高效率**
-   - 手动部署：30 分钟
-   - 自动部署：3 分钟
+1. **Improve Efficiency**
+   - Manual deployment: 30 minutes
+   - Automated deployment: 3 minutes
 
-2. **减少错误**
-   - 自动测试捕获 bug
-   - 自动回滚防止故障
+2. **Reduce Errors**
+   - Automated tests catch bugs
+   - Automatic rollback prevents failures
 
-3. **快速迭代**
-   - 每天部署 10+ 次
-   - 快速响应用户需求
-
----
-
-## 🎓 面试中如何展示 CI/CD 技能
-
-### 简历中写
-```
-✅ 设计并实现 CI/CD 流程，使用 GitHub Actions 自动化测试和部署
-✅ 构建 Docker 化应用，部署到 AWS ECS，实现零停机部署
-✅ 使用 Jenkins 构建多环境 CI/CD 流程，支持 dev/test/prod 环境
-✅ 集成自动化测试，代码覆盖率达到 80%+
-```
-
-### 面试中说
-```
-"我在项目中实现了完整的 CI/CD 流程：
-
-1. 开发者 push 代码后，GitHub Actions 自动运行单元测试和集成测试
-2. 测试通过后，自动构建 Docker 镜像并推送到 ECR
-3. 使用 AWS CodeDeploy 自动部署到 ECS 集群
-4. 部署后自动运行健康检查，如果失败自动回滚
-5. 整个流程从 push 到上线只需要 5 分钟
-
-这个流程让我们的部署频率从每周 1 次提升到每天 10+ 次，
-同时生产环境故障率降低了 60%。"
-```
+3. **Fast Iteration**
+   - Deploy 10+ times per day
+   - Quick response to user needs
 
 ---
 
-**现在你明白了吗？Git Push 只是第一步，CI/CD 才是完整的自动化！** 🚀
+## 🎓 How to Showcase CI/CD Skills in Interviews
+
+### On Resume
+```
+✅ Designed and implemented CI/CD pipeline using GitHub Actions for automated testing and deployment
+✅ Built Dockerized applications and deployed to AWS ECS with zero-downtime deployment
+✅ Created multi-environment CI/CD pipeline using Jenkins supporting dev/test/prod environments
+✅ Integrated automated testing with 80%+ code coverage
+```
+
+### In Interview
+```
+"I implemented a complete CI/CD pipeline in my project:
+
+1. After developers push code, GitHub Actions automatically runs unit and integration tests
+2. After tests pass, automatically builds Docker image and pushes to ECR
+3. Uses AWS CodeDeploy to automatically deploy to ECS cluster
+4. Automatically runs health checks after deployment, with automatic rollback on failure
+5. The entire process from push to production takes only 5 minutes
+
+This pipeline increased our deployment frequency from once per week to 10+ times per day,
+while reducing production failures by 60%."
+```
+
+---
+
+## 🔍 Common Interview Questions
+
+### Q1: What's the difference between CI and CD?
+
+**Answer:**
+```
+CI (Continuous Integration):
+- Focuses on code quality
+- Automatically runs tests when code is pushed
+- Catches bugs early
+- Ensures code can be integrated
+
+CD (Continuous Deployment):
+- Focuses on deployment automation
+- Automatically deploys to production
+- Reduces manual errors
+- Enables fast iteration
+
+Together: CI ensures quality, CD ensures delivery
+```
+
+### Q2: What CI/CD tools have you used?
+
+**Answer:**
+```
+I have experience with:
+
+1. GitHub Actions:
+   - Used for my personal projects
+   - Easy to set up and integrate
+   - Free for public repositories
+
+2. GitLab CI/CD:
+   - Used in previous company
+   - Powerful features
+   - Good for enterprise projects
+
+3. AWS CodePipeline:
+   - Integrated with AWS services
+   - Used for cloud-native applications
+
+I'm also familiar with Jenkins and CircleCI concepts.
+```
+
+### Q3: How do you handle deployment failures?
+
+**Answer:**
+```
+My approach to handling deployment failures:
+
+1. Prevention:
+   - Comprehensive automated testing
+   - Staging environment testing
+   - Gradual rollout (canary deployment)
+
+2. Detection:
+   - Health checks after deployment
+   - Monitoring and alerting
+   - Log analysis
+
+3. Response:
+   - Automatic rollback on failure
+   - Notify team immediately
+   - Investigate root cause
+
+4. Recovery:
+   - Rollback to previous version
+   - Fix the issue
+   - Re-deploy after testing
+
+5. Post-mortem:
+   - Document the incident
+   - Improve CI/CD pipeline
+   - Prevent similar issues
+
+In my AWS work, I implemented automatic rollback
+which reduced deployment failure impact by 80%.
+```
+
+---
+
+**Now you understand: Git Push is just the trigger, CI/CD is the complete automation magic!** 🚀
