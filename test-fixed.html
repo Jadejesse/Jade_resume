@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Position Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 3000px;
+            background: linear-gradient(to bottom, #aee9ff, #65d6ff);
+        }
+        
+        .test-fixed {
+            position: fixed !important;
+            bottom: 30px !important;
+            left: 30px !important;
+            background: rgba(255, 182, 193, 0.95);
+            padding: 20px;
+            border-radius: 25px;
+            z-index: 999999 !important;
+            border: 3px solid rgba(255, 105, 180, 0.6);
+        }
+        
+        .content {
+            padding: 100px 50px;
+            color: white;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>滚动测试页面</h1>
+        <p>向下滚动，看看粉色框是否跟随...</p>
+        <p style="margin-top: 500px;">继续滚动...</p>
+        <p style="margin-top: 500px;">继续滚动...</p>
+        <p style="margin-top: 500px;">到底了！</p>
+    </div>
+    
+    <div class="test-fixed">
+        <h3>✨ 测试固定框 ✨</h3>
+        <p>这个框应该固定在左下角</p>
+    </div>
+</body>
+</html>

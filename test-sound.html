@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sound Test</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 50px;
+            background: #f0f0f0;
+        }
+        button {
+            padding: 20px 40px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔊 Sound Test</h1>
+    
+    <button onclick="testSound()">Test Keyboard Sound</button>
+    <button onclick="testClickListener()">Test Click Listener</button>
+    
+    <div class="result" id="result">
+        Click buttons to test...
+    </div>
+    
+    <script>
+        function testSound() {
+            const result = document.getElementById('result');
+            result.innerHTML = 'Playing sound...';
+            
+            const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3');
+            audio.volume = 0.3;
+            audio.play()
+                .then(() => {
+                    result.innerHTML = '✅ Sound played successfully!';
+                })
+                .catch((err) => {
+                    result.innerHTML = '❌ Sound failed: ' + err.message;
+                });
+        }
+        
+        function testClickListener() {
+            const result = document.getElementById('result');
+            result.innerHTML = 'Click listener added. Click anywhere on the page...';
+            
+            document.addEventListener('click', (e) => {
+                result.innerHTML = '✅ Click detected at: ' + e.pageX + ', ' + e.pageY;
+                testSound();
+            }, { once: true, capture: true });
+        }
+    </script>
+</body>
+</html>

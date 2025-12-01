@@ -27,7 +27,32 @@ document.addEventListener('DOMContentLoaded', () => {
       
       // Create music control UI
       this.createUI();
-      console.log('Lo-fi music ready. Click the button to play!');
+      this.tryAutoPlay();
+    },
+    
+    tryAutoPlay() {
+      // Try autoplay after user interaction
+      const startMusic = () => {
+        this.audio.play().then(() => {
+          this.isPlaying = true;
+          document.querySelector('.music-control').classList.add('playing');
+          console.log('Lo-fi music playing!');
+        }).catch(() => {
+          console.log('Autoplay blocked. Click the button to play.');
+        });
+        document.removeEventListener('click', startMusic);
+        document.removeEventListener('keydown', startMusic);
+      };
+      
+      // Try immediate autoplay
+      this.audio.play().then(() => {
+        this.isPlaying = true;
+        document.querySelector('.music-control').classList.add('playing');
+      }).catch(() => {
+        // If blocked, wait for user interaction
+        document.addEventListener('click', startMusic, { once: true });
+        document.addEventListener('keydown', startMusic, { once: true });
+      });
     },
     
     createUI() {
@@ -57,14 +82,15 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   
   // ========================================
-  // 2. PARTICLE MOUSE TRAIL
+  // 2. PARTICLE MOUSE TRAIL (FULL PAGE)
   // ========================================
   const particleSystem = {
     particles: [],
-    maxParticles: 50,
+    maxParticles: 60,
     
     init() {
-      document.addEventListener('mousemove', (e) => this.createParticle(e));
+      // Listen on document for full page coverage
+      document.addEventListener('mousemove', (e) => this.createParticle(e), { passive: true });
       this.animate();
     },
     
@@ -75,8 +101,9 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const particle = document.createElement('div');
       particle.className = 'particle';
-      particle.style.left = e.clientX + 'px';
-      particle.style.top = e.clientY + 'px';
+      // Use pageX/pageY for full page coverage including scrolled areas
+      particle.style.left = e.pageX + 'px';
+      particle.style.top = e.pageY + 'px';
       
       // Random colors from theme
       const colors = ['#aee9ff', '#65d6ff', '#0ea5d8', '#7dd3fc'];
@@ -280,17 +307,62 @@ document.addEventListener('DOMContentLoaded', () => {
   // ========================================
   const soundEffects = {
     init() {
-      const buttons = document.querySelectorAll('.btn, .card-cute, .dock-icon');
-      buttons.forEach(btn => {
-        btn.addEventListener('click', () => this.playClick());
-      });
+      // Use event delegation for all clicks on document
+      document.addEventListener('click', (e) => {
+        this.playClick();
+      }, true); // Use capture phase to catch all clicks
     },
     
     playClick() {
-      // Keyboard typing sound effect
-      const audio = new Audio('https://cdn.pixabay.com/audio/2022/03/10/audio_4dedf2f94e.mp3');
-      audio.volume = 0.15;
-      audio.play().catch(() => {}); // Ignore errors
+      // Keyboard typing sound effect - using a working URL
+      const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3');
+      audio.volume = 0.3;
+      audio.play().catch((err) => {
+        console.log('Sound play failed:', err);
+      });
+    }
+  };
+  
+  // ========================================
+  // 8. FORCE FIXED POSITIONING
+  // ========================================
+  const forceFixedPositioning = {
+    init() {
+      // Wait for elements to be created
+      setTimeout(() => {
+        const musicControl = document.querySelector('.music-control');
+        const hintsBox = document.querySelector('.easter-egg-hints');
+        const darkToggle = document.querySelector('.dark-mode-toggle');
+        
+        console.log('🔧 Forcing fixed positioning...');
+        
+        if (musicControl) {
+          musicControl.style.setProperty('position', 'fixed', 'important');
+          musicControl.style.setProperty('bottom', '30px', 'important');
+          musicControl.style.setProperty('left', '30px', 'important');
+          musicControl.style.setProperty('z-index', '999999', 'important');
+          console.log('✅ Music control fixed:', window.getComputedStyle(musicControl).position);
+        }
+        
+        if (hintsBox) {
+          hintsBox.style.setProperty('position', 'fixed', 'important');
+          hintsBox.style.setProperty('bottom', '120px', 'important');
+          hintsBox.style.setProperty('left', '30px', 'important');
+          hintsBox.style.setProperty('z-index', '999999', 'important');
+          console.log('✅ Hints box fixed:', window.getComputedStyle(hintsBox).position);
+        }
+        
+        if (darkToggle) {
+          darkToggle.style.setProperty('position', 'fixed', 'important');
+          darkToggle.style.setProperty('top', '30px', 'important');
+          darkToggle.style.setProperty('right', '30px', 'important');
+          darkToggle.style.setProperty('z-index', '999999', 'important');
+          console.log('✅ Dark toggle fixed:', window.getComputedStyle(darkToggle).position);
+        }
+        
+        // Force reflow
+        document.body.offsetHeight;
+      }, 100);
     }
   };
   
@@ -304,5 +376,6 @@ document.addEventListener('DOMContentLoaded', () => {
   darkMode.init();
   avatarEasterEgg.init();
   soundEffects.init();
+  forceFixedPositioning.init();
   
 });

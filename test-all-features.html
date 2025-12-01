@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>All Features Test</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #aee9ff, #65d6ff);
+            min-height: 2000px;
+            padding: 20px;
+        }
+        
+        .test-box {
+            background: white;
+            padding: 30px;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        button, a {
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            background: #0ea5d8;
+            color: white;
+            border: none;
+        }
+        
+        /* Particle */
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            animation: particleFade 1s ease-out forwards;
+            box-shadow: 0 0 10px currentColor;
+        }
+        
+        @keyframes particleFade {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0); }
+        }
+        
+        /* Fixed Hints Box */
+        .hints-box {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: rgba(255, 182, 193, 0.95);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(255, 105, 180, 0.3);
+            z-index: 9999;
+            max-width: 250px;
+        }
+        
+        .hints-box h3 {
+            margin-bottom: 10px;
+            color: #ff1493;
+        }
+        
+        .hints-box p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .status {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            z-index: 10000;
+        }
+    </style>
+</head>
+<body>
+    <div class="status">
+        <h3>Status</h3>
+        <p id="soundStatus">Sound: Not tested</p>
+        <p id="particleStatus">Particles: 0</p>
+        <p id="scrollStatus">Scroll: 0px</p>
+    </div>
+    
+    <div class="hints-box">
+        <h3>✨ Fixed Hints Box</h3>
+        <p>This box should follow scroll</p>
+        <p>It's position: fixed</p>
+    </div>
+    
+    <div class="test-box">
+        <h1>🎯 Feature Test Page</h1>
+        <p>This page tests all features:</p>
+        <ul>
+            <li>✨ Mouse particles (move mouse)</li>
+            <li>🔊 Click sound (click anywhere)</li>
+            <li>📌 Fixed hints box (scroll down)</li>
+        </ul>
+    </div>
+    
+    <div class="test-box">
+        <h2>Test Buttons</h2>
+        <button>Click Me 1</button>
+        <button>Click Me 2</button>
+        <a href="#test">Link Test</a>
+    </div>
+    
+    <div class="test-box">
+        <h2>Scroll Down</h2>
+        <p>Scroll down to test if the hints box follows...</p>
+    </div>
+    
+    <div class="test-box" style="margin-top: 500px;">
+        <h2>Middle of Page</h2>
+        <p>Move mouse here to test particles...</p>
+    </div>
+    
+    <div class="test-box" style="margin-top: 500px;">
+        <h2>Bottom of Page</h2>
+        <p>The hints box should still be visible!</p>
+    </div>
+    
+    <script>
+        // Particle System
+        const particles = [];
+        const maxParticles = 50;
+        
+        document.addEventListener('mousemove', (e) => {
+            if (particles.length > maxParticles) {
+                const old = particles.shift();
+                old.remove();
+            }
+            
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = e.pageX + 'px';
+            particle.style.top = e.pageY + 'px';
+            
+            const colors = ['#aee9ff', '#65d6ff', '#0ea5d8', '#7dd3fc'];
+            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+            
+            document.body.appendChild(particle);
+            particles.push(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 1000);
+            
+            // Update status
+            document.getElementById('particleStatus').textContent = 'Particles: ' + particles.length;
+        });
+        
+        // Click Sound
+        document.addEventListener('click', (e) => {
+            const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3');
+            audio.volume = 0.3;
+            audio.play()
+                .then(() => {
+                    document.getElementById('soundStatus').textContent = 'Sound: ✅ Playing';
+                    setTimeout(() => {
+                        document.getElementById('soundStatus').textContent = 'Sound: Ready';
+                    }, 500);
+                })
+                .catch((err) => {
+                    document.getElementById('soundStatus').textContent = 'Sound: ❌ ' + err.message;
+                });
+        }, true);
+        
+        // Scroll Status
+        window.addEventListener('scroll', () => {
+            document.getElementById('scrollStatus').textContent = 'Scroll: ' + window.scrollY + 'px';
+        });
+        
+        console.log('✅ All features initialized!');
+        console.log('- Move mouse to see particles');
+        console.log('- Click anywhere to hear sound');
+        console.log('- Scroll to test fixed box');
+    </script>
+</body>
+</html>

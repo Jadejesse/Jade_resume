@@ -133,30 +133,54 @@ const cityPopPlayer = {
   
   init() {
     this.audio = new Audio();
-    // City Pop style music - upbeat retro style
-    this.audio.src = 'https://cdn.pixabay.com/audio/2022/08/23/audio_d1718ab41f.mp3';
+    // Lo-fi music for home page
+    this.audio.src = 'https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3';
     this.audio.loop = true;
     this.audio.volume = this.volume;
     
     // Add error handling
     this.audio.addEventListener('error', () => {
       console.error('Failed to load music. Trying alternative...');
-      // Fallback to another upbeat track
-      this.audio.src = 'https://cdn.pixabay.com/audio/2022/03/23/audio_4aedb8c4d0.mp3';
+      this.audio.src = 'https://cdn.pixabay.com/audio/2022/03/10/audio_12b0c7443c.mp3';
       this.audio.load();
     });
     
     this.createUI();
-    // Don't autoplay, let user click
-    console.log('City Pop music ready. Click the button to play!');
+    this.tryAutoPlay();
+  },
+  
+  tryAutoPlay() {
+    // Try autoplay after user interaction
+    const startMusic = () => {
+      this.audio.play().then(() => {
+        this.isPlaying = true;
+        document.querySelector('.home-music-control').classList.add('playing');
+        console.log('Lo-fi music playing!');
+      }).catch(() => {
+        console.log('Autoplay blocked. Click the button to play.');
+      });
+      // Remove listener after first interaction
+      document.removeEventListener('click', startMusic);
+      document.removeEventListener('keydown', startMusic);
+    };
+    
+    // Try immediate autoplay
+    this.audio.play().then(() => {
+      this.isPlaying = true;
+      document.querySelector('.home-music-control').classList.add('playing');
+    }).catch(() => {
+      // If blocked, wait for user interaction
+      document.addEventListener('click', startMusic, { once: true });
+      document.addEventListener('keydown', startMusic, { once: true });
+    });
   },
   
   createUI() {
     const musicBtn = document.createElement('div');
     musicBtn.className = 'home-music-control';
     musicBtn.innerHTML = `
-      <div class="home-music-icon">🎶</div>
-      <div class="home-music-text">City Pop</div>
+      <div class="home-music-icon">�</div>
+      <div class="home-music-text">Lo-fi Music</div>
     `;
     document.body.appendChild(musicBtn);
     
@@ -222,16 +246,19 @@ const homeParticles = {
 // ========================================
 const homeClickSound = {
   init() {
-    const clickables = document.querySelectorAll('a, .icon-card, .dock-icon, .nav-menu a');
-    clickables.forEach(el => {
-      el.addEventListener('click', () => this.playSound());
-    });
+    // Use event delegation for all clicks on document
+    document.addEventListener('click', (e) => {
+      this.playSound();
+    }, true); // Use capture phase to catch all clicks
   },
   
   playSound() {
-    const audio = new Audio('https://cdn.pixabay.com/audio/2022/03/10/audio_4dedf2f94e.mp3');
-    audio.volume = 0.15;
-    audio.play().catch(() => {});
+    // Keyboard typing sound effect - using a working URL
+    const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3');
+    audio.volume = 0.3;
+    audio.play().catch((err) => {
+      console.log('Sound play failed:', err);
+    });
   }
 };
 
