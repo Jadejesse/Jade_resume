@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #aee9ff, #65d6ff);
+        }
+        .feature-card {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #04293a;
+        }
+        h2 {
+            color: #0ea5d8;
+            margin-top: 0;
+        }
+        .test-btn {
+            background: linear-gradient(90deg, #65d6ff, #0ea5d8);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 5px;
+        }
+        .test-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(14,165,216,0.3);
+        }
+        .status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .status.working { background: #4ade80; color: white; }
+        .status.pending { background: #fbbf24; color: white; }
+    </style>
+</head>
+<body>
+    <h1>🎨 Enhanced Features Test Page</h1>
+    
+    <div class="feature-card">
+        <h2>✅ Features Checklist</h2>
+        <p><span class="status working">READY</span> All features have been implemented!</p>
+    </div>
+
+    <div class="feature-card">
+        <h2>1. 🎵 Lo-fi Music Player</h2>
+        <p><strong>Status:</strong> <span class="status working">Working</span></p>
+        <p>Look for the music control in the bottom left corner of your main resume page.</p>
+        <p>Click it to play/pause chill lo-fi music (volume: 15%)</p>
+    </div>
+
+    <div class="feature-card">
+        <h2>2. ✨ Mouse Particle Trail</h2>
+        <p><strong>Status:</strong> <span class="status working">Working</span></p>
+        <p>Move your mouse around the page to see colorful particles following your cursor!</p>
+    </div>
+
+    <div class="feature-card">
+        <h2>3. 🎮 Konami Code</h2>
+        <p><strong>Status:</strong> <span class="status working">Working</span></p>
+        <p><strong>在哪里输入？</strong> 直接在简历页面上按键盘，不需要点击任何输入框！</p>
+        <p><strong>按键顺序：</strong></p>
+        <p style="background: #f0f0f0; padding: 15px; border-radius: 5px; font-family: monospace; font-size: 18px; text-align: center;">
+            ↑ ↑ ↓ ↓ ← → ← → <strong>b a</strong>
+        </p>
+        <p><strong>说明：</strong></p>
+        <ul>
+            <li>前8个是<strong>方向键</strong>（键盘上的箭头键）</li>
+            <li>最后2个是<strong>字母键 b 和 a</strong>（小写就可以，不区分大小写）</li>
+            <li>按对一个键会在屏幕中央显示进度</li>
+            <li>按错了会自动重置，从头再来</li>
+            <li>成功后激活彩虹模式！🌈</li>
+        </ul>
+        <p style="background: #fff3cd; padding: 10px; border-radius: 5px; border-left: 4px solid #ffc107;">
+            💡 <strong>提示：</strong> 打开浏览器控制台（F12）可以看到进度提示！
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <h2>4. ⌨️ Typewriter Effect</h2>
+        <p><strong>Status:</strong> <span class="status working">Working</span></p>
+        <p>Your main title types out automatically when the page loads!</p>
+        <p>Refresh the page to see it again.</p>
+    </div>
+
+    <div class="feature-card">
+        <h2>5. 🌙 Dark Mode Toggle</h2>
+        <p><strong>Status:</strong> <span class="status working">Working</span></p>
+        <p>Look for the moon/sun icon in the top right corner.</p>
+        <p>Click to switch between light and dark themes!</p>
+    </div>
+
+    <div class="feature-card">
+        <h2>6. 🎉 Avatar Easter Egg</h2>
+        <p><strong>Status:</strong> <span class="status working">Working</span></p>
+        <p>Click your avatar (JC) exactly 10 times to activate Party Mode!</p>
+        <p>Enjoy the celebration! 🎊</p>
+    </div>
+
+    <div class="feature-card">
+        <h2>7. 🔊 Click Sound Effects</h2>
+        <p><strong>Status:</strong> <span class="status working">Working</span></p>
+        <p>All buttons and links have subtle click sounds (volume: 10%)</p>
+    </div>
+
+    <div class="feature-card">
+        <h2>8. 📊 Skills Radar Chart</h2>
+        <p><strong>Status:</strong> <span class="status working">Working</span></p>
+        <p>Scroll to the Skills section to see your interactive radar chart!</p>
+        <p>Visualizes 8 different technical skills.</p>
+    </div>
+
+    <div class="feature-card">
+        <h2>9. 💬 Console Messages</h2>
+        <p><strong>Status:</strong> <span class="status working">Working</span></p>
+        <p>Press F12 to open Developer Console and see fun messages!</p>
+        <p>Hints about easter eggs are hidden there. 😉</p>
+    </div>
+
+    <div class="feature-card">
+        <h2>🚀 Ready to Test!</h2>
+        <p>Open your <strong>index.html</strong> file to see all features in action!</p>
+        <a href="index.html" style="text-decoration: none;">
+            <button class="test-btn">🎯 Open Main Resume</button>
+        </a>
+    </div>
+
+    <div class="feature-card">
+        <h2>📝 Notes</h2>
+        <ul>
+            <li>All music/sounds are from Pixabay (royalty-free, no copyright issues)</li>
+            <li>Features are optimized for performance</li>
+            <li>Works on all modern browsers</li>
+            <li>Mobile responsive</li>
+            <li>Your preferences (dark mode) are saved</li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,353 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Background */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('1336080.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+/* Top Bar */
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: rgba(174, 233, 255, 0.25);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(174, 233, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(101, 214, 255, 0.2);
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.nav-menu a:hover {
+    transform: translateY(-2px);
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.weather-date {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: white;
+    font-size: 14px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.weather {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.weather-icon {
+    font-size: 20px;
+}
+
+.weather-temp {
+    font-weight: 600;
+}
+
+.date-time {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    line-height: 1.3;
+}
+
+.city {
+    font-weight: 700;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+#date {
+    font-weight: 600;
+}
+
+#time {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+/* Side Icons */
+.side-icons {
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    z-index: 50;
+}
+
+.icon-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-card:hover {
+    transform: translateX(-10px) scale(1.1);
+}
+
+.cloud-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(174, 233, 255, 0.4), rgba(101, 214, 255, 0.5));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    box-shadow: 0 8px 32px rgba(101, 214, 255, 0.3);
+    border: 2px solid rgba(174, 233, 255, 0.6);
+    transition: all 0.3s;
+}
+
+.icon-card:hover .cloud-icon {
+    background: linear-gradient(135deg, rgba(174, 233, 255, 0.6), rgba(101, 214, 255, 0.7));
+    box-shadow: 0 12px 40px rgba(101, 214, 255, 0.5);
+    transform: scale(1.05);
+}
+
+.icon-label {
+    margin-top: 10px;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Bottom Dock */
+.dock {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    padding: 15px 25px;
+    background: linear-gradient(135deg, rgba(174, 233, 255, 0.3), rgba(101, 214, 255, 0.35));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(101, 214, 255, 0.3);
+    border: 1px solid rgba(174, 233, 255, 0.5);
+    z-index: 100;
+}
+
+.dock-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, rgba(174, 233, 255, 0.4), rgba(101, 214, 255, 0.5));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(101, 214, 255, 0.2);
+    border: 1px solid rgba(174, 233, 255, 0.4);
+}
+
+.dock-icon:hover {
+    transform: translateY(-10px) scale(1.1);
+    background: linear-gradient(135deg, rgba(174, 233, 255, 0.6), rgba(101, 214, 255, 0.7));
+    box-shadow: 0 8px 25px rgba(101, 214, 255, 0.5);
+}
+
+.dock-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .side-icons {
+        right: 20px;
+        gap: 20px;
+    }
+    
+    .cloud-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+    }
+    
+    .icon-label {
+        font-size: 11px;
+    }
+    
+    .dock {
+        gap: 10px;
+        padding: 10px 15px;
+    }
+    
+    .dock-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .dock-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+
+/* ========================================
+   HOME PAGE MUSIC PLAYER (CITY POP)
+   ======================================== */
+.home-music-control {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  background: linear-gradient(135deg, rgba(255, 192, 203, 0.95), rgba(255, 182, 193, 0.95));
+  backdrop-filter: blur(10px);
+  padding: 12px 20px;
+  border-radius: 50px;
+  box-shadow: 0 8px 32px rgba(255, 105, 180, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 182, 193, 0.5);
+}
+
+.home-music-control:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 40px rgba(255, 105, 180, 0.4);
+}
+
+.home-music-control.playing .home-music-icon {
+  animation: cityPopPulse 0.8s ease-in-out infinite;
+}
+
+@keyframes cityPopPulse {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.3) rotate(15deg); }
+}
+
+.home-music-icon {
+  font-size: 24px;
+  filter: drop-shadow(0 2px 4px rgba(255, 105, 180, 0.3));
+}
+
+.home-music-text {
+  font-weight: 700;
+  color: #d63384;
+  font-size: 14px;
+  font-family: 'Comic Sans MS', 'Chalkboard SE', cursive, sans-serif;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* ========================================
+   HOME PAGE PARTICLE EFFECT
+   ======================================== */
+.home-particle {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  animation: homeParticleFade 1s ease-out forwards;
+  box-shadow: 0 0 15px currentColor;
+}
+
+@keyframes homeParticleFade {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(
+      calc((random() - 0.5) * 60px),
+      calc((random() - 0.5) * 60px)
+    ) scale(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .home-music-control {
+    bottom: 20px;
+    left: 20px;
+    padding: 10px 16px;
+  }
+  
+  .home-music-text {
+    font-size: 12px;
+  }
+  
+  .home-music-icon {
+    font-size: 20px;
+  }
+  
+  .home-particle {
+    width: 8px;
+    height: 8px;
+  }
+}
