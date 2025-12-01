@@ -1,178 +1,83 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jade Chen - Online Resume</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="enhanced-features.css">
+    <title>Jade Chen - Home</title>
+    <link rel="stylesheet" href="home-style.css">
 </head>
 <body>
-    <div class="bg-anim"></div>
-
-    <header class="hero">
-        <div class="hero-inner">
-            <div class="avatar">JC</div>
-            <div class="hero-text">
-                <h1>Jade Chen</h1>
-                <p class="role main-title">Data Center Cloud and Infra Engineer</p>
-                <div class="cta">
-                    <a class="btn primary" href="#contact">Contact</a>
-                    <a class="btn ghost" href="#experience">Experience</a>
-                </div>
+    <!-- Background -->
+    <div class="background"></div>
+    
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="logo">JADE</div>
+        <nav class="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="resume.html#about">About Me</a>
+            <a href="resume.html#skills">Expertise</a>
+            <a href="resume.html#experience">Projects</a>
+            <a href="resume.html#contact">Contact</a>
+        </nav>
+        <div class="weather-date">
+            <div class="weather" id="weather">
+                <span class="weather-icon">☀️</span>
+                <span class="weather-temp" id="temp">--°C</span>
             </div>
-        </div>
-                <div class="css-waves">
-                    <div class="wave wave1"></div>
-                    <div class="wave wave2"></div>
-                    <div class="wave wave3"></div>
-                </div>
-
-        <!-- Cute Card Grid Section -->
-        <section class="card-grid">
-            <a class="card-cute" href="#about">
-                <div class="card-cute-icon">👩‍💻</div>
-                <div class="card-cute-title">About Me</div>
-                <div class="card-cute-desc">Quick intro and profile</div>
-            </a>
-            <a class="card-cute" href="#skills">
-                <div class="card-cute-icon">🛠️</div>
-                <div class="card-cute-title">Skills</div>
-                <div class="card-cute-desc">Tech stack & strengths</div>
-            </a>
-            <a class="card-cute" href="#experience">
-                <div class="card-cute-icon">💼</div>
-                <div class="card-cute-title">Experience</div>
-                <div class="card-cute-desc">Work & projects</div>
-            </a>
-            <a class="card-cute" href="#contact">
-                <div class="card-cute-icon">📬</div>
-                <div class="card-cute-title">Contact</div>
-                <div class="card-cute-desc">Get in touch</div>
-            </a>
-        </section>
-
-    <!-- Hidden Features Hint Box -->
-    <div class="easter-egg-hints">
-        <div class="hint-title">✨ Hidden Features ✨</div>
-        <div class="hint-items">
-            <a href="home.html" class="hint-item hint-home-btn">
-                <span class="hint-icon">🏠</span>
-                <span class="hint-text">Back to Home Page</span>
-            </a>
-            <div class="hint-item">
-                <span class="hint-icon">🎮</span>
-                <span class="hint-text">Try Konami Code: ↑↑↓↓←→←→BA</span>
-            </div>
-            <div class="hint-item">
-                <span class="hint-icon">🎉</span>
-                <span class="hint-text">Click avatar 10 times for surprise!</span>
-            </div>
-            <div class="hint-item">
-                <span class="hint-icon">🌙</span>
-                <span class="hint-text">Toggle dark mode (top right)</span>
-            </div>
-            <div class="hint-item">
-                <span class="hint-icon">💬</span>
-                <span class="hint-text">Check the console (F12)</span>
+            <div class="date-time">
+                <span class="city">Melbourne</span>
+                <span id="date">Mon 1 Dec</span>
+                <span id="time">12:15 PM</span>
             </div>
         </div>
     </div>
 
-    <section id="about" class="card">
-        <h2>About Me</h2>
-        <p class="about-text">
-            Cloud and Infrastructure Engineer with hands-on experience across AWS cloud and enterprise-scale environments. 
-            Currently working at Amazon Web Services (AWS) Data Center Cloud and Infra team, supporting critical cloud 
-            infrastructure and automation projects.
-        </p>
-        <p class="about-text">
-            Proficient in Python and Bash scripting, Linux system, CloudWatch, and AWS services such as EC2, S3, IAM, 
-            CloudWatch, and Lambda. Passionate about cloud support, automating operations, improving system reliability, 
-            networking, and architecting scalable cloud environments.
-        </p>
-    </section>
+    <!-- Right Side Icons -->
+    <div class="side-icons">
+        <a href="resume.html#about" class="icon-card">
+            <div class="cloud-icon">☁️</div>
+            <div class="icon-label">About Me</div>
+        </a>
+        <a href="resume.html#skills" class="icon-card">
+            <div class="cloud-icon">☁️</div>
+            <div class="icon-label">Expertise</div>
+        </a>
+        <a href="resume.html#experience" class="icon-card">
+            <div class="cloud-icon">☁️</div>
+            <div class="icon-label">Projects</div>
+        </a>
+    </div>
 
-    <section id="contact" class="card">
-        <h2>Contact</h2>
-        <ul class="contact-list">
-            <li><strong>Email:</strong> <a href="mailto:chosen1edwin@gmail.com">chosen1edwin@gmail.com</a></li>
-            <li><strong>Phone:</strong> 0455 750 352</li>
-            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jadechen">linkedin.com/in/jadechen</a></li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/Jadejesse">github.com/Jadejesse</a></li>
-        </ul>
-    </section>
+    <!-- Bottom Dock -->
+    <div class="dock">
+        <a href="https://www.linkedin.com/in/jade-chen-b1288417b/" target="_blank" class="dock-icon" title="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+        </a>
+        <a href="https://github.com/Jadejesse" target="_blank" class="dock-icon" title="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+        </a>
+        <a href="mailto:chosen1edwin@gmail.com" class="dock-icon" title="Email">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
+            </svg>
+        </a>
+        <a href="resume.html#contact" class="dock-icon" title="Terminal">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM7.5 17l-1.41-1.41L8.67 13l-2.58-2.59L7.5 9l4 4-4 4zm6.5 0v-2h4v2h-4z"/>
+            </svg>
+        </a>
+        <a href="https://jadejesse.github.io/Jade_resume/" class="dock-icon" title="Portfolio">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/>
+            </svg>
+        </a>
+    </div>
 
-    <section id="skills" class="card">
-        <h2>Skills</h2>
-        <div class="skills-grid">
-            <div class="skill">
-                <div class="skill-head"><span>AWS Cloud</span><span class="percent">90%</span></div>
-                <div class="bar" data-percent="90"><div class="fill"></div></div>
-            </div>
-            <div class="skill">
-                <div class="skill-head"><span>Python / Bash</span><span class="percent">88%</span></div>
-                <div class="bar" data-percent="88"><div class="fill"></div></div>
-            </div>
-            <div class="skill">
-                <div class="skill-head"><span>SQL & Data</span><span class="percent">85%</span></div>
-                <div class="bar" data-percent="85"><div class="fill"></div></div>
-            </div>
-            <div class="skill">
-                <div class="skill-head"><span>Linux / Windows</span><span class="percent">82%</span></div>
-                <div class="bar" data-percent="82"><div class="fill"></div></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="card">
-        <h2>Experience</h2>
-
-        <div class="job card-light">
-            <h3>Data Center Cloud and Infra Engineer - Amazon Web Services (AWS)</h3>
-            <p class="muted">Mar 2025 - Current | Melbourne, VIC</p>
-            <ul>
-                <li>Develop Python and Bash scripts to automate daily log collection, parsing, and anomaly detection.</li>
-                <li>Monitor system logs and generate concise reports for on-call teams.</li>
-                <li>Automated daily data center operations, reducing incident response time.</li>
-                <li>Administer AWS resources (EC2, S3, RDS) and IAM permissions; use CloudWatch for proactive monitoring.</li>
-                <li>Conduct Linux and Windows Server troubleshooting, configuration, patching, and optimization.</li>
-            </ul>
-        </div>
-
-        <div class="job card-light">
-            <h3>Data Analyst - QQ Fashion</h3>
-            <p class="muted">Sep 2024 - Mar 2025 | Remote</p>
-            <ul>
-                <li>Business reporting, data analysis, and visualization.</li>
-                <li>Database management and web app development.</li>
-                <li>Created dashboards and visual reports using SQL, Power BI, Tableau, Excel.</li>
-            </ul>
-        </div>
-
-        <div class="job card-light">
-            <h3>Data Analyst - COLES Group</h3>
-            <p class="muted">Sep 2021 - Aug 2022 | Melbourne, VIC Hybrid</p>
-            <ul>
-                <li>Delivered actionable insights and dashboards to support business decision-making.</li>
-                <li>Developed automated SQL scripts for efficient reporting and forecasting.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="education" class="card">
-        <h2>Education</h2>
-        <p class="edu-detail">Bachelor of Information Technology, Griffith University, Brisbane, QLD, 2018</p>
-    </section>
-
-    <footer>
-        <p>© 2025 Jade Chen</p>
-    </footer>
-
-    <script src="script.js"></script>
-    <script src="enhanced-features.js"></script>
-    <script src="skills-radar.js"></script>
+    <script src="home-script.js"></script>
 </body>
 </html>
-
-    
