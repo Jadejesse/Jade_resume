@@ -9,6 +9,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // ========================================
   const loadingScreen = {
     init() {
+      // Prevent scrolling during loading
+      document.body.style.overflow = 'hidden';
+      
+      // Save the hash (anchor) if exists
+      const targetHash = window.location.hash;
+      
+      // Temporarily remove hash to prevent auto-scroll
+      if (targetHash) {
+        history.replaceState(null, null, window.location.pathname);
+      }
+      
+      // Scroll to top
+      window.scrollTo(0, 0);
+      
       // Create loading screen
       const loader = document.createElement('div');
       loader.className = 'loading-screen';
@@ -21,11 +35,27 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
       document.body.prepend(loader);
       
-      // Hide after 2 seconds
+      // Hide after 2.5 seconds
       setTimeout(() => {
         loader.classList.add('hidden');
-        setTimeout(() => loader.remove(), 500);
-      }, 2000);
+        
+        setTimeout(() => {
+          loader.remove();
+          // Re-enable scrolling
+          document.body.style.overflow = '';
+          
+          // Restore hash and scroll to target
+          if (targetHash) {
+            window.location.hash = targetHash;
+            const target = document.querySelector(targetHash);
+            if (target) {
+              setTimeout(() => {
+                target.scrollIntoView({ behavior: 'smooth' });
+              }, 100);
+            }
+          }
+        }, 600);
+      }, 2500);
     }
   };
   

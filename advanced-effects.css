@@ -17,7 +17,7 @@
   align-items: center;
   justify-content: center;
   z-index: 9999999;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 
 .loading-screen.hidden {
@@ -42,7 +42,7 @@
                  0 0 60px rgba(101, 214, 255, 0.6);
   }
   50% { 
-    transform: scale(1.1);
+    transform: scale(1.08);
     text-shadow: 0 0 50px rgba(174, 233, 255, 1),
                  0 0 100px rgba(101, 214, 255, 0.8);
   }
@@ -60,7 +60,7 @@
   height: 100%;
   background: linear-gradient(90deg, #aee9ff, #65d6ff, #0ea5d8);
   border-radius: 10px;
-  animation: loadingProgress 2s ease-in-out forwards;
+  animation: loadingProgress 2.2s ease-out forwards;
   box-shadow: 0 0 20px rgba(174, 233, 255, 0.8);
 }
 
@@ -74,7 +74,7 @@
   color: #aee9ff;
   font-size: 16px;
   font-weight: 600;
-  animation: loadingTextFade 1.5s ease-in-out infinite;
+  animation: loadingTextFade 1.2s ease-in-out infinite;
 }
 
 @keyframes loadingTextFade {
