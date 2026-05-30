@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jade Chen - Online Resume</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="enhanced-features.css">
+    <link rel="stylesheet" href="enhanced-features.css?v=20260530-particles-original">
     <link rel="stylesheet" href="advanced-effects.css">
 </head>
 <body>
     <div class="bg-anim"></div>
+    <div class="ambient-depth" aria-hidden="true"></div>
+    <div class="ambient-dust" aria-hidden="true"></div>
 
     <header class="hero">
         <div class="hero-inner">
@@ -18,11 +20,7 @@
             </div>
             <div class="hero-text">
                 <h1>Jade Chen</h1>
-                <p class="role main-title">Data Center Cloud and Infra Engineer</p>
-                <div class="cta">
-                    <a class="btn primary" href="#contact">Contact</a>
-                    <a class="btn ghost" href="#experience">Experience</a>
-                </div>
+                <p class="role main-title">Senior Azure Security Engineer |</p>
             </div>
         </div>
         <!-- Cute Card Grid Section -->
@@ -80,14 +78,14 @@
     <section id="about" class="card">
         <h2>About Me</h2>
         <p class="about-text">
-            Cloud and Infrastructure Engineer with hands-on experience across AWS cloud and enterprise-scale environments. 
-            Currently working at Amazon Web Services (AWS) Data Center Cloud and Infra team, supporting critical cloud 
-            infrastructure and automation projects.
+            Cloud Infrastructure and Escalation Engineer focused on Azure Security, Microsoft Defender for Office 365, 
+            Azure Identity, and large-scale cloud reliability. I own complex, high-severity customer incidents end to end, 
+            using telemetry, KQL, log correlation, and distributed-system diagnostics to identify root cause and drive durable fixes.
         </p>
         <p class="about-text">
-            Proficient in Python and Bash scripting, Linux system, CloudWatch, and AWS services such as EC2, S3, IAM, 
-            CloudWatch, and Lambda. Passionate about cloud support, automating operations, improving system reliability, 
-            networking, and architecting scalable cloud environments.
+            My background combines Microsoft security escalation work with hands-on AWS hyperscale infrastructure experience across 
+            compute, GPU, storage, and networking layers. I build Python and API-based automation, improve investigation runbooks, 
+            partner with engineering and Product Group teams, and care deeply about observability, incident response, and resilient cloud systems.
         </p>
     </section>
 
@@ -105,20 +103,36 @@
         <h2>Skills</h2>
         <div class="skills-grid">
             <div class="skill">
-                <div class="skill-head"><span>AWS Cloud</span><span class="percent">90%</span></div>
+                <div class="skill-head"><span>Azure Security / Microsoft 365</span><span class="percent">90%</span></div>
                 <div class="bar" data-percent="90"><div class="fill"></div></div>
             </div>
             <div class="skill">
-                <div class="skill-head"><span>Python / Bash</span><span class="percent">88%</span></div>
+                <div class="skill-head"><span>Microsoft Defender / Entra ID / KQL</span><span class="percent">88%</span></div>
                 <div class="bar" data-percent="88"><div class="fill"></div></div>
             </div>
             <div class="skill">
-                <div class="skill-head"><span>SQL & Data</span><span class="percent">85%</span></div>
-                <div class="bar" data-percent="85"><div class="fill"></div></div>
+                <div class="skill-head"><span>Incident Response & Threat Investigation</span><span class="percent">88%</span></div>
+                <div class="bar" data-percent="88"><div class="fill"></div></div>
             </div>
             <div class="skill">
-                <div class="skill-head"><span>Linux / Windows</span><span class="percent">82%</span></div>
+                <div class="skill-head"><span>Python / Bash / API Automation</span><span class="percent">86%</span></div>
+                <div class="bar" data-percent="86"><div class="fill"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-head"><span>AWS Cloud Infrastructure</span><span class="percent">86%</span></div>
+                <div class="bar" data-percent="86"><div class="fill"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-head"><span>Linux / Windows Server</span><span class="percent">82%</span></div>
                 <div class="bar" data-percent="82"><div class="fill"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-head"><span>Networking & Distributed Systems</span><span class="percent">80%</span></div>
+                <div class="bar" data-percent="80"><div class="fill"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-head"><span>SQL & Data Analysis</span><span class="percent">84%</span></div>
+                <div class="bar" data-percent="84"><div class="fill"></div></div>
             </div>
         </div>
     </section>
@@ -127,30 +141,30 @@
         <h2>Experience</h2>
 
         <div class="job card-light">
-            <h3>Data Center Cloud and Infra Engineer - Amazon Web Services (AWS)</h3>
-            <p class="muted">Mar 2025 - Current | Melbourne, VIC</p>
+            <h3>Senior Azure Security Engineer - Microsoft</h3>
+            <p class="muted">Jan 2026 - Present | Sydney, NSW</p>
             <ul>
-                <li>Develop Python and Bash scripts to automate daily log collection, parsing, and anomaly detection.</li>
-                <li>Monitor system logs and generate concise reports for on-call teams.</li>
-                <li>Automated daily data center operations, reducing incident response time.</li>
-                <li>Administer AWS resources (EC2, S3, RDS) and IAM permissions; use CloudWatch for proactive monitoring.</li>
-                <li>Conduct Linux and Windows Server troubleshooting, configuration, patching, and optimization.</li>
+                <li>Own and lead complex, high-severity enterprise security incidents across Microsoft Defender for Office 365, Exchange Online, and Azure Identity environments.</li>
+                <li>Investigate phishing campaigns, spoofing attacks, mail flow anomalies, and identity-based threats using KQL, Defender Advanced Hunting, message trace telemetry, and authentication headers.</li>
+                <li>Partner with Microsoft Product Group, engineering, and incident management teams to drive root cause analysis, mitigation, and long-term platform improvements.</li>
+                <li>Build Python and API-based automation for investigation workflows, alert triage, telemetry analysis, and operational reporting.</li>
             </ul>
         </div>
 
         <div class="job card-light">
-            <h3>Data Analyst - QQ Fashion</h3>
-            <p class="muted">Sep 2024 - Mar 2025 | Remote</p>
+            <h3>Data Center Cloud and Infra Engineer - Amazon Web Services (AWS)</h3>
+            <p class="muted">Jan 2025 - Jan 2026 | Melbourne, VIC</p>
             <ul>
-                <li>Business reporting, data analysis, and visualization.</li>
-                <li>Database management and web app development.</li>
-                <li>Created dashboards and visual reports using SQL, Power BI, Tableau, Excel.</li>
+                <li>Supported and operated large-scale AWS production infrastructure across compute, GPU, storage, and networking layers.</li>
+                <li>Responded to SEV-2 incidents and infrastructure escalations across high-load production environments.</li>
+                <li>Built Python-based workflows for incident data aggregation, reporting, and post-incident review support.</li>
+                <li>Troubleshot Linux, Windows Server, networking, host health, and cloud infrastructure issues in a hyperscale data center environment.</li>
             </ul>
         </div>
 
         <div class="job card-light">
             <h3>Data Analyst - COLES Group</h3>
-            <p class="muted">Sep 2021 - Aug 2022 | Melbourne, VIC Hybrid</p>
+            <p class="muted">Sep 2021 - Feb 2023 | Melbourne, VIC Hybrid</p>
             <ul>
                 <li>Delivered actionable insights and dashboards to support business decision-making.</li>
                 <li>Developed automated SQL scripts for efficient reporting and forecasting.</li>
@@ -167,15 +181,8 @@
         <p>© 2025 Jade Chen</p>
     </footer>
 
-    <!-- Wave Animation at Bottom -->
-    <div class="css-waves-bottom">
-        <div class="wave wave1"></div>
-        <div class="wave wave2"></div>
-        <div class="wave wave3"></div>
-    </div>
-
     <script src="script.js"></script>
-    <script src="enhanced-features.js"></script>
+    <script src="enhanced-features.js?v=20260530-particles-original"></script>
     <script src="skills-radar.js"></script>
     <script src="advanced-effects.js"></script>
 </body>

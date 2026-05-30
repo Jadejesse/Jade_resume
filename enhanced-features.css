@@ -314,8 +314,8 @@ body.dark-mode .konami-progress {
   left: 30px !important;
   background: linear-gradient(135deg, rgba(255, 182, 193, 0.95), rgba(255, 218, 224, 0.95));
   backdrop-filter: blur(15px);
-  padding: 20px;
-  border-radius: 25px;
+  padding: 14px;
+  border-radius: 20px;
   box-shadow: 0 10px 40px rgba(255, 105, 180, 0.3);
   z-index: 999999 !important;
   border: 3px solid rgba(255, 182, 193, 0.6);
@@ -330,11 +330,11 @@ body.dark-mode .konami-progress {
 }
 
 .hint-title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   color: #ff1493;
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
   animation: hintTitlePulse 2s ease-in-out infinite;
 }
@@ -347,16 +347,16 @@ body.dark-mode .konami-progress {
 .hint-items {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .hint-item {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   background: rgba(255, 255, 255, 0.7);
-  padding: 8px 12px;
-  border-radius: 15px;
+  padding: 6px 10px;
+  border-radius: 13px;
   transition: all 0.3s ease;
   cursor: pointer;
   text-decoration: none;
@@ -426,6 +426,42 @@ body.dark-mode .hint-item:hover {
 
 body.dark-mode .hint-text {
   color: #ffb6c1;
+}
+
+/* Premium anime refinement for floating controls */
+.music-control {
+  background: linear-gradient(135deg, rgba(234,253,255,0.88), rgba(174,233,255,0.62)) !important;
+  border: 1px solid rgba(255,255,255,0.58) !important;
+  box-shadow: 0 14px 46px rgba(3, 17, 30, 0.20), 0 0 22px rgba(94, 231, 255, 0.22) !important;
+}
+
+.dark-mode-toggle {
+  background: linear-gradient(135deg, rgba(234,253,255,0.90), rgba(174,233,255,0.68)) !important;
+  border: 1px solid rgba(255,255,255,0.64) !important;
+  box-shadow: 0 14px 46px rgba(3, 17, 30, 0.18), 0 0 22px rgba(94, 231, 255, 0.24) !important;
+}
+
+.easter-egg-hints {
+  background: linear-gradient(135deg, rgba(238, 252, 255, 0.78), rgba(188, 225, 255, 0.42)) !important;
+  border: 1px solid rgba(255,255,255,0.62) !important;
+  box-shadow: 0 18px 58px rgba(3, 17, 30, 0.20), 0 0 34px rgba(174,233,255,0.20) !important;
+  font-family: Inter, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+.hint-title {
+  color: #0b5b83 !important;
+  text-shadow: 0 1px 10px rgba(255,255,255,0.72) !important;
+}
+
+.hint-item,
+.hint-home-btn {
+  background: rgba(255,255,255,0.62) !important;
+  border: 1px solid rgba(255,255,255,0.58) !important;
+}
+
+.hint-text {
+  color: #164760 !important;
+  font-weight: 700 !important;
 }
 
 @media (max-width: 768px) {

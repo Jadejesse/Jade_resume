@@ -48,18 +48,18 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'radar',
       data: {
         labels: [
+          'Azure Security',
+          'Microsoft 365',
+          'KQL / Telemetry',
+          'Python / API',
           'AWS Cloud',
-          'Python/Bash',
-          'SQL & Data',
-          'Linux/Windows',
-          'Automation',
+          'Incident Response',
           'Networking',
-          'Problem Solving',
-          'Team Collaboration'
+          'SQL & Data'
         ],
         datasets: [{
           label: 'Technical Skills',
-          data: [90, 88, 85, 82, 85, 80, 88, 85],
+          data: [90, 88, 86, 86, 86, 88, 80, 84],
           fill: true,
           backgroundColor: 'rgba(101, 214, 255, 0.2)',
           borderColor: 'rgb(14, 165, 216)',

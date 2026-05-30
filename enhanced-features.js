@@ -276,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Create image overlay with fade-in effect
       const overlay = document.createElement('div');
       overlay.className = 'party-image-overlay';
-      overlay.innerHTML = '<img src="1310224.jpeg" alt="Special" class="party-image">';
+      overlay.innerHTML = '<img src="back_image.jpg" alt="Special" class="party-image">';
       document.body.appendChild(overlay);
       
       // Play EVA theme song - "A Cruel Angel's Thesis"
