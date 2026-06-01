@@ -193,24 +193,31 @@ strong {
   box-shadow: 0 0 12px var(--cp-cyan), 0 0 22px var(--cp-glow-c) !important;
 }
 
-/* ─── Main section cards ────────────────────────────────────────── */
+/* ─── Main section cards — glass morphism ───────────────────────── */
 .card {
-  background: rgba(2, 10, 28, 0.62) !important;
-  border: 1px solid var(--cp-border) !important;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 229, 255, 0.05) !important;
+  background: rgba(2, 8, 22, 0.42) !important;
+  border: 1px solid rgba(0, 229, 255, 0.22) !important;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(0, 229, 255, 0.06),
+    inset 0 1px 0 rgba(0, 229, 255, 0.12) !important;
   color: var(--cp-text) !important;
-  backdrop-filter: blur(14px) !important;
+  backdrop-filter: blur(18px) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(1.4) !important;
 }
 
 .card:hover {
   transform: translateY(-4px) !important;
+  background: rgba(2, 10, 30, 0.52) !important;
   animation: cyberCardGlow 2s linear infinite !important;
 }
 
 .card-light {
-  background: rgba(2, 8, 22, 0.55) !important;
-  border: 1px solid rgba(0, 229, 255, 0.13) !important;
+  background: rgba(2, 6, 18, 0.35) !important;
+  border: 1px solid rgba(0, 229, 255, 0.10) !important;
   color: var(--cp-text) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
 }
 
 /* ─── Card border color-cycle on hover ──────────────────────────── */

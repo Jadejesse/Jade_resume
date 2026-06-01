@@ -178,13 +178,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     activate() {
       document.body.classList.add('konami-mode');
-      alert('🎮 KONAMI CODE ACTIVATED! 🎉\n\nYou found the secret! Enjoy the rainbow mode! 🌈');
-      console.log('🌈 RAINBOW MODE ACTIVATED!');
-      
-      // Play sound effect
-      const audio = new Audio('https://cdn.pixabay.com/audio/2021/08/04/audio_0625c1539c.mp3');
-      audio.volume = 0.3;
-      audio.play().catch(() => {});
+      console.log('🌈 KONAMI BLAST ACTIVATED!');
+      if (typeof window.__konamiBlast === 'function') {
+        window.__konamiBlast();
+      }
     }
   };
   
