@@ -8,218 +8,45 @@
     <link rel="stylesheet" href="enhanced-features.css?v=20260530-particles-original">
     <link rel="stylesheet" href="advanced-effects.css">
     <link rel="stylesheet" href="cyberpunk.css">
-    <link rel="stylesheet" href="cmd-dashboard.css">
 </head>
 <body>
     <div class="bg-anim"></div>
     <div class="ambient-depth" aria-hidden="true"></div>
     <div class="ambient-dust" aria-hidden="true"></div>
 
-    <header class="hero cmd-hero">
-
-        <!-- ── Identity Bar ─────────────────────────────────── -->
-        <div class="cmd-identity">
+    <header class="hero">
+        <div class="hero-inner">
             <div class="avatar">
                 <img src="秋.jpg" alt="Jade Chen" class="avatar-img">
             </div>
-            <div class="cmd-id-info">
-                <div class="cmd-id-name">JADE CHEN</div>
-                <div class="cmd-id-role">Senior Azure Security Engineer II &nbsp;·&nbsp; Microsoft</div>
-                <div class="cmd-id-status">
-                    <span class="cmd-status-dot"></span>
-                    <span class="cmd-status-text">SYSTEM ONLINE</span>
-                    <span class="cmd-sep">|</span>
-                    <span id="cmd-clock">--:--:-- UTC</span>
-                    <span class="cmd-sep">|</span>
-                    <span>SYD · AZURE · MSFT</span>
-                </div>
-            </div>
-            <div class="cmd-id-meta">
-                <div class="cmd-id-meta-item">CLEARANCE: <span class="cmd-val">ALPHA</span></div>
-                <div class="cmd-id-meta-item">UNIT: <span class="cmd-val">JC-01</span></div>
-                <div class="cmd-id-meta-item">SYNC: <span class="cmd-val" id="cmd-sync-rate">98.4%</span></div>
+            <div class="hero-text">
+                <h1>Jade Chen</h1>
+                <p class="role main-title">Senior Azure Security Engineer |</p>
             </div>
         </div>
-
-        <!-- ── Dashboard Grid ────────────────────────────────── -->
-        <div class="cmd-grid">
-
-            <!-- Left: Infrastructure Status -->
-            <div class="cmd-panel cmd-panel-left">
-                <div class="cmd-ph">
-                    <span class="cmd-ph-dot"></span>
-                    INFRASTRUCTURE STATUS
-                </div>
-                <div class="cmd-pb">
-                    <div class="cmd-mrow">
-                        <div class="cmd-mrow-head">
-                            <span class="cmd-mlabel">Azure Uptime</span>
-                            <span class="cmd-mval cmd-mval-ok">99.97%</span>
-                        </div>
-                        <div class="cmd-mbar"><div class="cmd-mbar-fill cmd-mbar-fill-green" data-pct="99" style="width:0"></div></div>
-                    </div>
-                    <div class="cmd-mrow">
-                        <div class="cmd-mrow-head">
-                            <span class="cmd-mlabel">API Latency</span>
-                            <span class="cmd-mval" data-fluc="12" data-unit="ms" data-dec="0">12ms</span>
-                        </div>
-                        <div class="cmd-mbar"><div class="cmd-mbar-fill" data-pct="88" style="width:0"></div></div>
-                    </div>
-                    <div class="cmd-mrow">
-                        <div class="cmd-mrow-head">
-                            <span class="cmd-mlabel">M365 Health</span>
-                            <span class="cmd-mval cmd-mval-ok">NOMINAL</span>
-                        </div>
-                        <div class="cmd-mbar"><div class="cmd-mbar-fill cmd-mbar-fill-green" data-pct="96" style="width:0"></div></div>
-                    </div>
-                    <div class="cmd-mrow">
-                        <div class="cmd-mrow-head">
-                            <span class="cmd-mlabel">KQL Queries/h</span>
-                            <span class="cmd-mval" data-fluc="847" data-unit="" data-dec="0">847</span>
-                        </div>
-                        <div class="cmd-mbar"><div class="cmd-mbar-fill" data-pct="74" style="width:0"></div></div>
-                    </div>
-                    <div class="cmd-mrow">
-                        <div class="cmd-mrow-head">
-                            <span class="cmd-mlabel">Active Nodes</span>
-                            <span class="cmd-mval" data-fluc="1247" data-unit="" data-dec="0">1247</span>
-                        </div>
-                        <div class="cmd-mbar"><div class="cmd-mbar-fill cmd-mbar-fill-green" data-pct="92" style="width:0"></div></div>
-                    </div>
-                    <hr class="cmd-div">
-                    <div class="cmd-sub-label">CLOUD REGIONS</div>
-                    <div class="cmd-regions">
-                        <div class="cmd-region"><span class="cmd-rdot"></span>East US</div>
-                        <div class="cmd-region"><span class="cmd-rdot"></span>West US 2</div>
-                        <div class="cmd-region"><span class="cmd-rdot"></span>Australia E</div>
-                        <div class="cmd-region"><span class="cmd-rdot"></span>SE Asia</div>
-                        <div class="cmd-region"><span class="cmd-rdot"></span>UK South</div>
-                        <div class="cmd-region"><span class="cmd-rdot"></span>Japan E</div>
-                    </div>
-                    <hr class="cmd-div">
-                    <div class="cmd-mrow">
-                        <div class="cmd-mrow-head">
-                            <span class="cmd-mlabel">Deployment</span>
-                            <span class="cmd-mval cmd-mval-ok">LIVE</span>
-                        </div>
-                    </div>
-                    <div class="cmd-mrow">
-                        <div class="cmd-mrow-head">
-                            <span class="cmd-mlabel">Open Incidents</span>
-                            <span class="cmd-mval cmd-mval-ok">0</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Center: Topology + Nav -->
-            <div class="cmd-center">
-                <div class="cmd-topo-wrap">
-                    <div class="cmd-topo-label">CLOUD INFRASTRUCTURE TOPOLOGY</div>
-                    <canvas id="cmd-topo"></canvas>
-                </div>
-                <section class="card-grid">
-                    <a class="card-cute" href="#about">
-                        <div class="card-cute-icon">🔷</div>
-                        <div class="card-cute-title">Cloud Control Plane</div>
-                        <div class="card-cute-desc">Azure · M365 · Identity</div>
-                    </a>
-                    <a class="card-cute" href="#skills">
-                        <div class="card-cute-icon">⚡</div>
-                        <div class="card-cute-title">AI Ops Engine</div>
-                        <div class="card-cute-desc">KQL · Python · Automation</div>
-                    </a>
-                    <a class="card-cute" href="#experience">
-                        <div class="card-cute-icon">🛡️</div>
-                        <div class="card-cute-title">Security Operations</div>
-                        <div class="card-cute-desc">Defender · Threat Intel</div>
-                    </a>
-                    <a class="card-cute" href="#contact">
-                        <div class="card-cute-icon">📡</div>
-                        <div class="card-cute-title">Infra Telemetry</div>
-                        <div class="card-cute-desc">Cloud · Network · Ops</div>
-                    </a>
-                </section>
-            </div>
-
-            <!-- Right: Security Operations -->
-            <div class="cmd-panel cmd-panel-right">
-                <div class="cmd-ph cmd-ph-right">
-                    <span class="cmd-ph-dot"></span>
-                    SECURITY OPERATIONS
-                </div>
-                <div class="cmd-pb">
-                    <div class="cmd-mrow">
-                        <div class="cmd-mrow-head">
-                            <span class="cmd-mlabel">Threat Level</span>
-                            <span class="cmd-mval cmd-mval-ok">LOW</span>
-                        </div>
-                        <div class="cmd-mbar"><div class="cmd-mbar-fill cmd-mbar-fill-green" data-pct="18" style="width:0"></div></div>
-                    </div>
-                    <div class="cmd-mrow">
-                        <div class="cmd-mrow-head">
-                            <span class="cmd-mlabel">Defender Score</span>
-                            <span class="cmd-mval cmd-mval-mag">94 / 100</span>
-                        </div>
-                        <div class="cmd-mbar"><div class="cmd-mbar-fill cmd-mbar-fill-mag" data-pct="94" style="width:0"></div></div>
-                    </div>
-                    <div class="cmd-mrow">
-                        <div class="cmd-mrow-head">
-                            <span class="cmd-mlabel">Phish Blocked/24h</span>
-                            <span class="cmd-mval" data-fluc="142" data-unit="" data-dec="0">142</span>
-                        </div>
-                        <div class="cmd-mbar"><div class="cmd-mbar-fill cmd-mbar-fill-mag" data-pct="62" style="width:0"></div></div>
-                    </div>
-                    <div class="cmd-mrow">
-                        <div class="cmd-mrow-head">
-                            <span class="cmd-mlabel">Entra Risk Events</span>
-                            <span class="cmd-mval cmd-mval-warn">3</span>
-                        </div>
-                        <div class="cmd-mbar"><div class="cmd-mbar-fill" data-pct="12" style="width:0"></div></div>
-                    </div>
-                    <div class="cmd-mrow">
-                        <div class="cmd-mrow-head">
-                            <span class="cmd-mlabel">MTTR</span>
-                            <span class="cmd-mval cmd-mval-ok">3.2 min</span>
-                        </div>
-                        <div class="cmd-mbar"><div class="cmd-mbar-fill cmd-mbar-fill-green" data-pct="85" style="width:0"></div></div>
-                    </div>
-                    <hr class="cmd-div">
-                    <div class="cmd-sub-label">RECENT ALERTS</div>
-                    <div class="cmd-alert">
-                        <span class="cmd-alert-tag">✓</span>
-                        <span>Phishing quarantined — score 0.97</span>
-                    </div>
-                    <div class="cmd-alert">
-                        <span class="cmd-alert-tag">✓</span>
-                        <span>Auth anomaly resolved — Entra CA</span>
-                    </div>
-                    <div class="cmd-alert">
-                        <span class="cmd-alert-tag cmd-alert-tag-warn">!</span>
-                        <span>SPF misconfig detected — remediated</span>
-                    </div>
-                    <div class="cmd-alert">
-                        <span class="cmd-alert-tag">✓</span>
-                        <span>ATP detonation: MALICIOUS — blocked</span>
-                    </div>
-                    <hr class="cmd-div">
-                    <div class="cmd-mrow">
-                        <div class="cmd-mrow-head">
-                            <span class="cmd-mlabel">Compliance</span>
-                            <span class="cmd-mval cmd-mval-ok">98.1%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div><!-- /cmd-grid -->
-
-        <!-- ── Log Stream ─────────────────────────────────────── -->
-        <div class="cmd-logstream">
-            <div class="cmd-log-prefix">▶ LIVE LOG</div>
-            <div class="cmd-log-scroll" id="cmd-log-scroll"></div>
-        </div>
-
+        <!-- Cute Card Grid Section -->
+        <section class="card-grid">
+            <a class="card-cute" href="#about">
+                <div class="card-cute-icon">👩‍💻</div>
+                <div class="card-cute-title">About Me</div>
+                <div class="card-cute-desc">Quick intro and profile</div>
+            </a>
+            <a class="card-cute" href="#skills">
+                <div class="card-cute-icon">🛠️</div>
+                <div class="card-cute-title">Skills</div>
+                <div class="card-cute-desc">Tech stack & strengths</div>
+            </a>
+            <a class="card-cute" href="#experience">
+                <div class="card-cute-icon">💼</div>
+                <div class="card-cute-title">Experience</div>
+                <div class="card-cute-desc">Work & projects</div>
+            </a>
+            <a class="card-cute" href="#contact">
+                <div class="card-cute-icon">📬</div>
+                <div class="card-cute-title">Contact</div>
+                <div class="card-cute-desc">Get in touch</div>
+            </a>
+        </section>
     </header>
 
     <!-- Hidden Features Hint Box -->
@@ -315,7 +142,7 @@
         <h2>Experience</h2>
 
         <div class="job card-light">
-            <h3>Senior Azure Security Engineer II - Microsoft</h3>
+            <h3>Senior Azure Security Engineer - Microsoft</h3>
             <p class="muted">Jan 2026 - Present | Sydney, NSW</p>
             <ul>
                 <li>Own and lead complex, high-severity enterprise security incidents across Microsoft Defender for Office 365, Exchange Online, and Azure Identity environments.</li>
@@ -361,7 +188,6 @@
     <script src="advanced-effects.js"></script>
     <script src="threejs-bg.js"></script>
     <script src="cyberpunk-particles.js"></script>
-    <script src="cmd-dashboard.js"></script>
 </body>
 </html>
 
