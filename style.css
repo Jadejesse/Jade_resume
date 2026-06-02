@@ -577,6 +577,7 @@ h2 {
 }
 
 #about.card {
+  margin-top: 220px;
   position: relative;
   overflow: hidden;
   background:
