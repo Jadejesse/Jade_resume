@@ -128,14 +128,22 @@ body.dark-mode .main-title {
   text-shadow: 0 4px 18px rgba(174,233,255,0.4), 0 1.5px 6px rgba(14,165,216,0.3);
 }
 
-/* Konami Code Rainbow Mode */
-body.konami-mode {
-  animation: rainbowBG 3s linear infinite !important;
+/* Konami Code Rainbow Mode — hue cycle via an overlay's backdrop-filter.
+   IMPORTANT: do NOT put `filter` on <body>; that makes body the containing
+   block for position:fixed children, which would pin the Rei layer + nebula
+   canvas to the document top and break the full-screen background. */
+.konami-fx {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  pointer-events: none;
 }
-
-@keyframes rainbowBG {
-  0% { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(360deg); }
+body.konami-mode .konami-fx {
+  animation: konamiHue 3s linear infinite;
+}
+@keyframes konamiHue {
+  0%   { -webkit-backdrop-filter: hue-rotate(0deg);   backdrop-filter: hue-rotate(0deg); }
+  100% { -webkit-backdrop-filter: hue-rotate(360deg); backdrop-filter: hue-rotate(360deg); }
 }
 
 body.konami-mode .card {
