@@ -230,14 +230,17 @@ body {
 
 body::before {
   position: fixed;
+  inset: 0;
+  width: 100%;
   height: 100vh;
   background:
-    linear-gradient(90deg, rgba(3, 17, 30, 0.54), rgba(36, 178, 219, 0.30) 45%, rgba(3, 17, 30, 0.46)),
-    linear-gradient(to bottom, rgba(174, 233, 255, 0.22), rgba(5, 22, 36, 0.34)),
+    linear-gradient(90deg, rgba(3, 17, 30, 0.34), rgba(36, 178, 219, 0.16) 45%, rgba(3, 17, 30, 0.30)),
+    linear-gradient(to bottom, rgba(174, 233, 255, 0.14), rgba(5, 22, 36, 0.22)),
     url('1310224.jpeg');
   background-size: cover;
-  background-position: center 32%;
-  opacity: 0.74;
+  background-position: center 30%;
+  background-attachment: fixed;
+  opacity: 0.9;
   box-shadow: none;
   animation: animeParallax 28s ease-in-out infinite alternate;
 }
@@ -249,8 +252,8 @@ body::after {
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 52% 8%, rgba(255,255,255,0.16), transparent 22%),
-    linear-gradient(to bottom, rgba(3, 17, 30, 0.06) 0%, rgba(3, 17, 30, 0.34) 58%, rgba(6, 21, 34, 0.16) 100%);
+    radial-gradient(circle at 52% 8%, rgba(255,255,255,0.10), transparent 24%),
+    linear-gradient(to bottom, rgba(3, 17, 30, 0.04) 0%, rgba(3, 17, 30, 0.20) 60%, rgba(6, 21, 34, 0.10) 100%);
 }
 
 .ambient-depth,

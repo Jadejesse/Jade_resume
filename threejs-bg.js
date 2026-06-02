@@ -56,7 +56,7 @@
 
     // GLSL ES 1.0 simplex noise — no overloaded functions
     var nebFrag = [
-      'precision mediump float;',
+      'precision highp float;',
       'uniform float uTime;',
       'uniform vec2  uMouse;',
       'varying vec2  vUv;',
@@ -130,7 +130,7 @@
       '  float vig = 1. - dot(ctr,ctr) * 0.70;',
       '  col *= max(0., vig);',
 
-      '  gl_FragColor = vec4(col, 0.45);',
+      '  gl_FragColor = vec4(col, 0.55);',
       '}'
     ].join('\n');
 
@@ -169,7 +169,7 @@
     ].join('\n');
 
     var sphFrag = [
-      'precision mediump float;',
+      'precision highp float;',
       'varying vec3  vNormal;',
       'varying vec3  vWorldPos;',
       'uniform float uTime;',
@@ -207,7 +207,7 @@
 
     // Left sphere — magenta primary, phase-offset breathing
     var sphFragL = [
-      'precision mediump float;',
+      'precision highp float;',
       'varying vec3  vNormal;',
       'varying vec3  vWorldPos;',
       'uniform float uTime;',
@@ -242,6 +242,10 @@
     );
     sphere2.position.set(-2.8, 0.6, -1.5);
     scene.add(sphere2);
+
+    // Decorative spheres kept out of view — nebula + particles only.
+    sphere.visible = false;
+    sphere2.visible = false;
 
     // ═══════════════════════════════════════════════════════════════
     // 3. PARTICLE FIELD  (5000 pts, wave breathing + mouse deflect)
@@ -311,7 +315,7 @@
     ].join('\n');
 
     var pFrag = [
-      'precision mediump float;',
+      'precision highp float;',
       'varying float vAlpha;',
       'varying vec3  vColor;',
       'void main() {',
