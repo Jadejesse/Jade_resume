@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avatar 样式测试</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: linear-gradient(135deg, #aee9ff, #65d6ff, #0ea5d8);
+            min-height: 100vh;
+            padding: 50px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 36px;
+            margin-bottom: 50px;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .avatar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .avatar-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        
+        .avatar-card h3 {
+            color: #0ea5d8;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        /* Style 1: 圆形头像 */
+        .avatar-style-1 {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(174, 233, 255, 0.8);
+            box-shadow: 0 8px 30px rgba(14, 165, 216, 0.3);
+            margin: 0 auto;
+        }
+        
+        /* Style 2: 圆形头像 + 渐变边框 */
+        .avatar-style-2 {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            padding: 5px;
+            background: linear-gradient(135deg, #aee9ff, #65d6ff, #0ea5d8);
+            box-shadow: 0 8px 30px rgba(14, 165, 216, 0.4);
+            margin: 0 auto;
+        }
+        
+        /* Style 3: 圆角方形 */
+        .avatar-style-3 {
+            width: 150px;
+            height: 150px;
+            border-radius: 30px;
+            object-fit: cover;
+            border: 5px solid rgba(174, 233, 255, 0.8);
+            box-shadow: 0 8px 30px rgba(14, 165, 216, 0.3);
+            margin: 0 auto;
+        }
+        
+        /* Style 4: 圆形 + 发光效果 */
+        .avatar-style-4 {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 0 30px rgba(174, 233, 255, 0.8),
+                        0 0 60px rgba(101, 214, 255, 0.6),
+                        0 8px 30px rgba(14, 165, 216, 0.4);
+            margin: 0 auto;
+        }
+        
+        /* Style 5: 圆形 + 双层边框 */
+        .avatar-style-5-wrapper {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #aee9ff, #65d6ff);
+            padding: 10px;
+            margin: 0 auto;
+            box-shadow: 0 8px 30px rgba(14, 165, 216, 0.4);
+        }
+        
+        .avatar-style-5 {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+        }
+        
+        /* Style 6: 圆形 + 悬浮效果 */
+        .avatar-style-6 {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(174, 233, 255, 0.8);
+            box-shadow: 0 15px 40px rgba(14, 165, 216, 0.4);
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+        
+        .avatar-style-6:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(14, 165, 216, 0.5);
+        }
+        
+        .description {
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .note {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            color: #0ea5d8;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Avatar 样式选择</h1>
+        
+        <div class="avatar-grid">
+            <!-- Style 1 -->
+            <div class="avatar-card">
+                <h3>样式 1: 经典圆形</h3>
+                <img src="秋.jpg" alt="Avatar" class="avatar-style-1">
+                <p class="description">简洁的圆形头像，带有淡蓝色边框和阴影效果</p>
+            </div>
+            
+            <!-- Style 2 -->
+            <div class="avatar-card">
+                <h3>样式 2: 渐变边框</h3>
+                <img src="秋.jpg" alt="Avatar" class="avatar-style-2">
+                <p class="description">圆形头像配上蓝色渐变边框，更有层次感</p>
+            </div>
+            
+            <!-- Style 3 -->
+            <div class="avatar-card">
+                <h3>样式 3: 圆角方形</h3>
+                <img src="秋.jpg" alt="Avatar" class="avatar-style-3">
+                <p class="description">圆角方形设计，现代感十足</p>
+            </div>
+            
+            <!-- Style 4 -->
+            <div class="avatar-card">
+                <h3>样式 4: 发光效果</h3>
+                <img src="秋.jpg" alt="Avatar" class="avatar-style-4">
+                <p class="description">圆形头像带有多层发光效果，非常醒目</p>
+            </div>
+            
+            <!-- Style 5 -->
+            <div class="avatar-card">
+                <h3>样式 5: 双层边框</h3>
+                <div class="avatar-style-5-wrapper">
+                    <img src="秋.jpg" alt="Avatar" class="avatar-style-5">
+                </div>
+                <p class="description">双层边框设计，渐变外圈 + 白色内圈</p>
+            </div>
+            
+            <!-- Style 6 -->
+            <div class="avatar-card">
+                <h3>样式 6: 悬浮动画</h3>
+                <img src="秋.jpg" alt="Avatar" class="avatar-style-6">
+                <p class="description">鼠标悬停时会向上浮动，增加互动感（试试 hover！）</p>
+            </div>
+        </div>
+        
+        <div class="note">
+            <strong>💡 提示：</strong><br>
+            请告诉我你喜欢哪个样式（1-6），我会把它应用到你的 resume 页面！<br>
+            或者如果你有其他想法，也可以告诉我！
+        </div>
+    </div>
+</body>
+</html>

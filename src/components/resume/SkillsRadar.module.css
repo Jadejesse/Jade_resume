@@ -1,0 +1,8 @@
+.chart {
+  height: 330px;
+  min-height: 280px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--panel-strong) 55%, transparent);
+}

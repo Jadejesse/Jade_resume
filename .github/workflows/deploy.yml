@@ -7,90 +7,47 @@ on:
     branches: [ main ]
 
 jobs:
-  # Job 1: Code Quality Check (CI)
-  lint:
-    name: Code Quality Check
+  build:
+    name: Build Vite App
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-    
-    - name: Check HTML syntax
-      run: |
-        echo "✅ Checking HTML files..."
-        # Simple check if HTML files exist
-        if [ -f "index.html" ]; then
-          echo "✅ index.html found"
-        else
-          echo "❌ index.html not found"
-          exit 1
-        fi
-    
-    - name: Check CSS syntax
-      run: |
-        echo "✅ Checking CSS files..."
-        if [ -f "style.css" ]; then
-          echo "✅ style.css found"
-        else
-          echo "❌ style.css not found"
-          exit 1
-        fi
-    
-    - name: Check JavaScript syntax
-      run: |
-        echo "✅ Checking JavaScript files..."
-        if [ -f "script.js" ]; then
-          echo "✅ script.js found"
-        else
-          echo "❌ script.js not found"
-          exit 1
-        fi
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-  # Job 2: Build and Deploy (CD)
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
-    needs: lint  # Only deploy after lint passes
+    needs: build
     if: github.ref == 'refs/heads/main'
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-    
-    - name: Setup deployment
-      run: |
-        echo "🚀 Preparing deployment..."
-        echo "📦 Project: Jade Resume"
-        echo "🌐 Target: GitHub Pages"
-        echo "✅ All checks passed!"
-    
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: .
-        publish_branch: gh-pages
-    
-    - name: Deployment success
-      run: |
-        echo "✅ Deployment successful!"
-        echo "🌐 Your site is live at: https://jadejesse.github.io/Jade_resume/"
-        echo "⏰ Deployed at: $(date)"
-
-  # Job 3: Notification (Optional)
-  notify:
-    name: Send Notification
-    runs-on: ubuntu-latest
-    needs: deploy
-    if: always()
-    
-    steps:
-    - name: Notify deployment status
-      run: |
-        if [ "${{ needs.deploy.result }}" == "success" ]; then
-          echo "✅ Deployment success notification"
-          echo "📧 You can integrate Slack/Email notifications here"
-        else
-          echo "❌ Deployment failure notification"
-        fi
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

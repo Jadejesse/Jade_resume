@@ -1,0 +1,68 @@
+.page {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.stage {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 120px 18px 110px;
+}
+
+.panel {
+  width: min(880px, 100%);
+  color: var(--text);
+}
+
+.kicker {
+  margin: 0 0 12px;
+  color: var(--accent);
+  font-weight: 900;
+}
+
+.panel h1 {
+  margin: 0;
+  font-size: clamp(4rem, 13vw, 10rem);
+  line-height: 0.86;
+}
+
+.panel p:not(.kicker) {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 2.4vw, 1.6rem);
+}
+
+.links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.card {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-height: 76px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  color: var(--text);
+  background: color-mix(in srgb, var(--panel) 82%, transparent);
+  text-decoration: none;
+  backdrop-filter: blur(16px);
+}
+
+.card:hover {
+  color: white;
+  background: linear-gradient(135deg, var(--accent), var(--violet));
+}
+
+@media (max-width: 680px) {
+  .links {
+    grid-template-columns: 1fr;
+  }
+}
